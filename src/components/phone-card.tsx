@@ -2,6 +2,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 import Link from "next/link";
 
 type PhoneCardProps = {
@@ -21,7 +22,7 @@ export default function PhoneCard({data, className}:PhoneCardProps) {
         <Card className="w-full select-none rounded-lg shadow-md overflow-hidden  group">
           <div className="relative pt-2">
             <div className="h-full transform translate-x-1 group-hover:scale-105 transition-all">
-              <img
+              <Image
                 alt={name}
                 className="mx-auto h-full"
                 height="150"
