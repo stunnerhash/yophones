@@ -18,7 +18,7 @@ export default function PhoneCard({data, className}:PhoneCardProps) {
   return (
     <Link href={`/${id}`}>
       <div className={cn(className,"cursor-pointer")}>
-        <Card className="w-[250px] seect-none rounded-lg shadow-md overflow-hidden  group">
+        <Card className="w-full select-none rounded-lg shadow-md overflow-hidden  group">
           <div className="relative pt-2">
             <div className="h-full transform translate-x-1 group-hover:scale-105 transition-all">
               <img

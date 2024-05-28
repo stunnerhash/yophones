@@ -1,32 +1,7 @@
 import { AccordionTrigger, AccordionContent, AccordionItem, Accordion } from "@/components/ui/accordion"
-import { Checkbox } from "@/components/ui/checkbox"
-import { Label } from "@/components/ui/label"
 import RadioFactory from "@/components/sidebar/radio-factory"
-import CheckboxFactory from "./checkbox-factory"
-
-const monthlyRadioData=[
-  {label:"Up to ₹1000", value:"1000"},
-  {label:"Up to ₹2000", value:"2000"},
-  {label:"Up to ₹3000", value:"3000"},
-  {label:"Up to ₹4000", value:"4000"},
-  {label:"Up to ₹6000", value:"6000"},
-]
-
-
-const upfrontRadioData=[
-  {label:"Up to ₹0", value:"0"},
-  {label:"Up to ₹5000", value:"5000"},
-  {label:"Up to ₹10000", value:"10000"},
-  {label:"Up to ₹15000", value:"15000"},
-  {label:"Up to ₹20000", value:"20000"},
-]
-
-
-const contractCheckboxData=[
-  {label:"12 Months"},
-  {label:"24 Months"},
-  {label:"36 Months"},
-]
+import CheckboxFactory from "@/components/sidebar/checkbox-factory"
+import { contractCheckboxData, monthlyRadioData, networkCheckboxData, packageRadioData, upfrontRadioData } from "@/sample-data"
 
 export default function Sidebar() {
   return (
@@ -53,7 +28,27 @@ export default function Sidebar() {
             />
           </AccordionContent>
         </AccordionItem>
-               
+ 
+        <AccordionItem value="package-data">
+          <AccordionTrigger className="text-base">Data</AccordionTrigger>
+          <AccordionContent>
+            <RadioFactory 
+              id="package-data"
+              data={packageRadioData}
+            />
+          </AccordionContent>
+        </AccordionItem>              
+
+        <AccordionItem value="network">
+          <AccordionTrigger className="text-base">Network</AccordionTrigger>
+          <AccordionContent>
+            <CheckboxFactory 
+              data={networkCheckboxData} 
+              id="network"
+            />
+          </AccordionContent>
+        </AccordionItem>              
+
         <AccordionItem value="contract-length">
           <AccordionTrigger className="text-base">Contract Length</AccordionTrigger>
           <AccordionContent>

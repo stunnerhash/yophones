@@ -7,14 +7,14 @@ type RadioOption = {
   label: string;
 };
 
-export default function RadioFactory ({data, id}:{data:RadioOption[], id: string}){
+export default function RadioFactory({ data, id }: { data: RadioOption[], id: string }) {
   return (
     <RadioGroup defaultValue="comfortable" id={id}>
-      {data.map(option=>(
-        <div className="flex items-center space-x-2">
-          <RadioGroupItem 
-            value={option.value} 
-            id={`${id}-${option.value}`} 
+      {data.map(option => (
+        <div key={option.value} className="flex items-center space-x-2">
+          <RadioGroupItem
+            value={option.value}
+            id={`${id}-${option.value}`}
           />
           <Label htmlFor={`${id}-${option.value}`} >
             {option.label}

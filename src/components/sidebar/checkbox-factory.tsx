@@ -3,6 +3,7 @@ import { Label } from "@/components/ui/label"
 
 type CheckboxOption = {
   label: string; 
+  logo?: string;
 };
 
 export default function CheckboxFactory({data, id}:{data:CheckboxOption[], id: string}){

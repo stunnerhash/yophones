@@ -5,9 +5,9 @@ import { Button } from "../ui/button"
 
 export default function Header() {
   return (
-    <div className="p-4 flex justify-between">
+    <div className="flex p-4  justify-between">
       <Navbar/>
-      <div className="p-4 gap-2 flex justify-center items-center">
+      <div className="flex gap-2 justify-between items-center">
         <ThemeSwitch/>
         <Button variant='outline'>Sign In</Button>   
       </div>
