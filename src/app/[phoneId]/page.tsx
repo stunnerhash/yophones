@@ -17,8 +17,8 @@ export default function Deals(
             <h1 className="text-2xl font-bold">List of {phoneId}</h1>
             <SortBy/>
           </div>
-          {Array.from({length:8},()=>
-            <DealCard/>
+          {Array.from({length:8},(_, index)=>
+            <DealCard key={index}/>
           )}
         </div>
       </div>
