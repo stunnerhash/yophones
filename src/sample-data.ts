@@ -44,11 +44,11 @@ export const popularPhones = [
   { title: "iPhone 14 Plus deals", href: "/3", },
   { title: "Galaxy S23 deals", href: "/4", },
   { title: "Galaxy S22 deals", href: "/5", },
-  { title: "iPhone 15 deals", href: "/1", },
-  { title: "iPhone 14 deals", href: "/2", },
-  { title: "iPhone 14 Plus deals", href: "/3", },
-  { title: "Galaxy S23 deals", href: "/4", },
-  { title: "Galaxy S22 deals", href: "/5", },
+  { title: "iPhone 13 deals", href: "/1", },
+  { title: "iPhone 12 deals", href: "/2", },
+  { title: "iPhone 13 Plus deals", href: "/3", },
+  { title: "Galaxy S21 deals", href: "/4", },
+  { title: "Galaxy S21 plus deals", href: "/5", },
 ]
 
 export const latestPhones = [

@@ -24,10 +24,11 @@ export default function PhoneCard({ data, className }: PhoneCardProps) {
             <div className="h-full transform translate-x-1 group-hover:scale-105 transition-all">
               <Image
                 alt={name}
-                className="mx-auto h-full"
+                className="mx-auto"
                 height="150"
                 src={frontImage}
                 width="80"
+                priority={true}
               />
             </div>
             <Badge className="absolute bottom-2 left-4" variant="secondary">

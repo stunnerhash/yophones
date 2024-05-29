@@ -1,6 +1,7 @@
 import * as React from "react"
 import { NavigationMenuLink } from "@/components/ui/navigation-menu"
 import { cn } from "@/lib/utils"
+import { ArrowRight } from "lucide-react"
 
 const NavListItem = React.forwardRef<
   React.ElementRef<"a">,
@@ -17,7 +18,10 @@ const NavListItem = React.forwardRef<
           )}
           {...props}
         >
+          <span className="flex justify-between items-center">
           <div className="text-sm font-medium leading-none active:text-primary">{title}</div>
+          <ArrowRight className="w-4 h-4"/>
+          </span>
           <p className="line-clamp-2 text-xs leading-snug text-muted-foreground">
             {children}
           </p>

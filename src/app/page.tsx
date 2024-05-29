@@ -53,16 +53,14 @@ export default function Home() {
         </div>
 
 
-     <div className="flex flex-wrap gap-6 justify-center">
-        {
-          sampleData.map(item=> 
+      <div className="flex flex-wrap gap-6 justify-center">
+        { sampleData.map(item=> 
             <PhoneCard key={item.id} className="w-72 " data={item}/>)
-      }
+        }
       </div>
       <div className="flex justify-center m-4">
         <Button variant={'outline'} className="w-1/2 text-lg"> <ChevronsDown /> Load More</Button>
       </div>
-
     </main>
   );
 }
