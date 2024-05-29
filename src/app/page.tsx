@@ -53,7 +53,6 @@ export default function Home() {
         </div>
 
 
-      <TempCard/>
      <div className="flex flex-wrap gap-6 justify-center">
         {
           sampleData.map(item=> 
