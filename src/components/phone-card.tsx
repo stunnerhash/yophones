@@ -7,19 +7,19 @@ import Link from "next/link";
 
 type PhoneCardProps = {
   data: {
-    id:string
+    id: string
     frontImage: string;
-    name:string
+    name: string
   };
   className?: string;
 };
 
-export default function PhoneCard({data, className}:PhoneCardProps) {
-  const {frontImage, name, id} = data;
+export default function PhoneCard({ data, className }: PhoneCardProps) {
+  const { frontImage, name, id } = data;
   return (
     <Link href={`/${id}`}>
-      <div className={cn(className,"cursor-pointer")}>
-        <Card className="w-full select-none rounded-lg shadow-md overflow-hidden  group">
+      <div className={cn(className, "cursor-pointer")}>
+        <Card className="w-full select-none rounded-lg shadow-md group">
           <div className="relative pt-2">
             <div className="h-full transform translate-x-1 group-hover:scale-105 transition-all">
               <Image
@@ -35,11 +35,11 @@ export default function PhoneCard({data, className}:PhoneCardProps) {
             </Badge>
           </div>
           <div className="px-4 py-6">
-            <div className="flex justify-center p-1 gap-1 ">
-              <div className="w-4 h-1 rounded-full bg-black " />
-              <div className="w-4 h-1 rounded-full bg-blue-500 " />
-              <div className="w-4 h-1 rounded-full bg-green-500" />
-              <div className="w-4 h-1 rounded-full bg-yellow-500 " />
+            <div className="flex justify-center p-1 gap-1">
+              <div className="w-4 h-1 rounded-full bg-black "/>
+              <div className="w-4 h-1 rounded-full bg-blue-500"/>
+              <div className="w-4 h-1 rounded-full bg-green-500"/>
+              <div className="w-4 h-1 rounded-full bg-yellow-500"/>
             </div>
             <div className="flex items-center space-x-1">
               <span className="font-bold text-xl">{name}</span>
@@ -50,7 +50,7 @@ export default function PhoneCard({data, className}:PhoneCardProps) {
               <p className="text-sm text-gray-600">No upfront cost</p>
             </div>
             <div className="mt-4">
-              <Button  className="w-full bg-primary text-primary-foreground" variant="default" >
+              <Button className="w-full bg-primary text-primary-foreground" variant="default" >
                 See all deals
               </Button>
             </div>

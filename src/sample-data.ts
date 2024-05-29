@@ -38,4 +38,25 @@ export const networkCheckboxData=[
   {label:"Tesco Mobile", logo:"https://img.uswitch.com/qhi9fkhtpbo3/657mgANokg0mI8qkUaWcYe/9cd35df75ebd5cbb33b57f17b56acce5/Tesco_Mobile_New_Logo_PNG.png?w=56&h=undefined&fit=bounds&auto=webp&quality=55,45"},
 ]
 
+export const popularPhones = [
+  { title: "iPhone 15 deals", href: "/1", },
+  { title: "iPhone 14 deals", href: "/2", },
+  { title: "iPhone 14 Plus deals", href: "/3", },
+  { title: "Galaxy S23 deals", href: "/4", },
+  { title: "Galaxy S22 deals", href: "/5", },
+  { title: "iPhone 15 deals", href: "/1", },
+  { title: "iPhone 14 deals", href: "/2", },
+  { title: "iPhone 14 Plus deals", href: "/3", },
+  { title: "Galaxy S23 deals", href: "/4", },
+  { title: "Galaxy S22 deals", href: "/5", },
+]
+
+export const latestPhones = [
+  { title: "iPhone 15 deals", href: "/1", },
+  { title: "iPhone 14 deals", href: "/2", },
+  { title: "iPhone 14 Plus deals", href: "/3", },
+  { title: "Galaxy S23 deals", href: "/4", },
+  { title: "Galaxy S22 deals", href: "/5", },
+]
+
 

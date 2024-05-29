@@ -1,9 +1,6 @@
 "use client"
 
 import * as React from "react"
-import Link from "next/link"
-
-import { cn } from "@/lib/utils"
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -12,66 +9,59 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu"
-
-const components: { title: string; href: string;}[] = [
-  { title: "iPhone 15 deals", href: "/1", },
-  { title: "iPhone 14 deals", href: "/2", },
-  { title: "iPhone 14 Plus deals", href: "/3", },
-  { title: "Galaxy S23 deals", href: "/4", },
-  { title: "Galaxy S22 deals", href: "/5", },
-]
+import Hamburger from "./hamburger"
+import { popularPhones } from "@/sample-data"
+import NavListItem from "@/components/header/nav-list-item"
 
 export default function Navbar() {
   return (
     <NavigationMenu>
       <NavigationMenuList>
+
+        <NavigationMenuItem>
+          <Hamburger className="md:hidden"/>
+        </NavigationMenuItem>
+
         <NavigationMenuItem>
           <NavigationMenuLink href={'/'}>
-            <h1 className="mx-2 text-xl sm:text-md font-bold cursor-pointer">USWITCH</h1>
+            <span className="mx-2 text-xl sm:text-md font-bold cursor-pointer">USWITCH</span>
           </NavigationMenuLink >
         </NavigationMenuItem>
-        <NavigationMenuItem className="hidden sm:block">
+
+        <NavigationMenuItem className="hidden md:block">
           <NavigationMenuTrigger>Popular Phones</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="p-4 w-60">
-              {components.map((component) => (
-                <ListItem
-                  key={component.title}
-                  title={component.title}
-                  href={component.href}
+            <ul className="grid  p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+              {popularPhones.map((phone) => (
+                <NavListItem
+                  key={phone.title}
+                  title={phone.title}
+                  href={phone.href}
                 >
-                </ListItem>
+                </NavListItem>
               ))}
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
+
+        <NavigationMenuItem className="hidden md:block">
+          <NavigationMenuTrigger>Latest Phones</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="grid gap-0 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+              {popularPhones.map((phone) => (
+                <NavListItem
+                  key={phone.title}
+                  title={phone.title}
+                  href={phone.href}
+                >
+                </NavListItem>
+              ))}
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+
       </NavigationMenuList>
     </NavigationMenu>
   )
 }
 
-const ListItem = React.forwardRef<
-  React.ElementRef<"a">,
-  React.ComponentPropsWithoutRef<"a">
->(({ className, title, children, ...props }, ref) => {
-  return (
-    <li>
-      <NavigationMenuLink asChild>
-        <a
-          ref={ref}
-          className={cn(
-            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-            className
-          )}
-          {...props}
-        >
-          <div className="text-sm font-medium leading-none">{title}</div>
-          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-            {children}
-          </p>
-        </a>
-      </NavigationMenuLink>
-    </li>
-  )
-})
-ListItem.displayName = "ListItem"

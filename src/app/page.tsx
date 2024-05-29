@@ -1,15 +1,18 @@
 import PhoneCard from "@/components/phone-card";
 import SortBy from "@/components/sort-by";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { cn } from "@/lib/utils";
 import sampleData from "@/sample-data.json"
-import { ChevronsDown } from "lucide-react";
+import { ChevronsDown, Search } from "lucide-react";
 import { ReactNode } from "react";
 
-const CheckboxButton = ({ children }:{children:ReactNode}) => {
+const CheckboxButton = ({ children, className }:{children:ReactNode; className?:string}) => {
   return (
-    <label className="cursor-pointer">
+    <label className={cn("cursor-pointer",className)}>
       <input type="checkbox"  className="hidden peer" />
-      <span className="rounded-full px-4 py-2 text-md font-medium border peer-checked:bg-secondary peer-checked:text-secondary-foreground peer-checked:border-transparent">
+      <span className="rounded-full px-4 py-2 text-md font-medium border peer-checked:bg-secondary peer-checked:text-secondary-foreground peer-checked:border-primary">
       <span className="peer-checked:inline hidden">✖</span>
         {children}
       </span>
@@ -29,29 +32,31 @@ export default function Home() {
           </p>   
         </span>
       </div>
-      
-      <div className="flex m-4 justify-between">
-      <div className="flex flex-wrap items-center gap-4 p-4">
-        <div className="text-sm font-medium text-gray-500 dark:text-gray-400">Filter by:</div>
-        <div className="flex flex-wrap items-center gap-2">
-          <CheckboxButton>Apple</CheckboxButton>
-          <CheckboxButton>Samsung</CheckboxButton>
-          <CheckboxButton>Google</CheckboxButton>
-          <CheckboxButton>Sony</CheckboxButton>
-          <CheckboxButton>Oneplus</CheckboxButton>
-        </div>
-      </div>
 
-
-      <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
-        <h1 className="text-2xl font-bold"></h1>
+      <div className="flex flex-wrap gap-2 items-center justify-between px-6 p-4">
+        <span className="flex items-center gap-2">
+          <Label htmlFor="search"><Search/></Label>
+          <Input id="search" placeholder="Search (eg. iPhone 14)" className="w-52 bg-secondary md:w-60"/>
+        </span>
         <SortBy/>
       </div>
-      </div>
-      <div className="flex flex-wrap lg:m-4 gap-6 justify-center">
-      {
+
+      <div className="flex flex-wrap items-center gap-4 p-6">
+          <div className="text-sm font-medium text-gray-500 dark:text-gray-400">Filter by:</div>
+          <div className="flex flex-wrap items-center gap-1 gap-y-4">
+            <CheckboxButton>Apple</CheckboxButton>
+            <CheckboxButton>Samsung</CheckboxButton>
+            <CheckboxButton>Google</CheckboxButton>
+            <CheckboxButton>Sony</CheckboxButton>
+            <CheckboxButton>Oneplus</CheckboxButton>
+          </div>
+        </div>
+
+
+     <div className="flex flex-wrap gap-6 justify-center">
+        {
           sampleData.map(item=> 
-            <PhoneCard key={item.id} className="" data={item}/>)
+            <PhoneCard key={item.id} className="w-72 " data={item}/>)
       }
       </div>
 
