@@ -29,9 +29,10 @@ export default function Hamburger({className}:{className:string;}){
               <AccordionContent>
                 <ul >
                   {popularPhones.map((phone)=>
-                    <span className="flex justify-between items-center">
-                      <NavListItem
-                        key={phone.title}
+                    <span 
+                      key={phone.title}
+                      className="flex justify-between items-center"
+                    > <NavListItem
                         title={phone.title}
                         href={phone.href}
                         className="space-y-0"
@@ -49,9 +50,10 @@ export default function Hamburger({className}:{className:string;}){
               <AccordionContent>
                 <ul >
                   {latestPhones.map((phone)=>
-                    <span className="flex justify-between items-center">
-                      <NavListItem
-                        key={phone.title}
+                    <span
+                      key={phone.title}
+                      className="flex justify-between items-center"
+                    > <NavListItem
                         title={phone.title}
                         href={phone.href}
                         className="space-y-0"
