@@ -9,7 +9,7 @@ export default function Header() {
   return (
     <div className="flex p-4  justify-between">
       <Navbar/>
-      <div className="flex gap-2 justify-between items-center">
+      <div className="flex gap-6 justify-between items-center">
         <ThemeSwitch/>
         <SignedOut>
           <SignInButton>

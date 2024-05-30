@@ -29,17 +29,13 @@ export default function Hamburger({className}:{className:string;}){
               <AccordionContent>
                 <ul >
                   {popularPhones.map((phone)=>
-                    <span 
-                      key={phone.title}
-                      className="flex justify-between items-center"
-                    > <NavListItem
+                    <NavListItem
+                        key={phone.title}
                         title={phone.title}
                         href={phone.href}
                         className="space-y-0"
                       >
                       </NavListItem>
-                      <ArrowRight className="w-4 h-4 text-gray-400"/>
-                    </span>
                   )}
                 </ul>
               </AccordionContent>
@@ -50,17 +46,13 @@ export default function Hamburger({className}:{className:string;}){
               <AccordionContent>
                 <ul >
                   {latestPhones.map((phone)=>
-                    <span
+                    <NavListItem
                       key={phone.title}
-                      className="flex justify-between items-center"
-                    > <NavListItem
-                        title={phone.title}
-                        href={phone.href}
-                        className="space-y-0"
-                      >
-                      </NavListItem>
-                      <ArrowRight className="w-4 h-4 text-gray-400"/>
-                    </span>
+                      title={phone.title}
+                      href={phone.href}
+                      className="space-y-0"
+                    >
+                    </NavListItem>
                   )}
                 </ul>
               </AccordionContent>

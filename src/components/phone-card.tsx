@@ -17,11 +17,11 @@ type PhoneCardProps = {
 export default function PhoneCard({ data, className }: PhoneCardProps) {
   const { frontImage, name, id } = data;
   return (
-    <Link href={`/${id}`}>
-      <div className={cn(className, "cursor-pointer")}>
+    <Link href={`/phones/${id}`}>
+      <div className={cn(className, "cursor-pointer hover:-translate-x-1 hover:-translate-y-1 transition-all")}>
         <Card className="w-full select-none rounded-lg shadow-md group">
           <div className="relative pt-2">
-            <div className="h-full transform translate-x-1 group-hover:scale-105 transition-all">
+            <div className="h-full transform translate-x-1  transition-all">
               <Image
                 alt={name}
                 className="mx-auto"

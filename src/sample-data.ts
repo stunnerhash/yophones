@@ -39,24 +39,30 @@ export const networkCheckboxData=[
 ]
 
 export const popularPhones = [
-  { title: "iPhone 15 deals", href: "/1", },
-  { title: "iPhone 14 deals", href: "/2", },
-  { title: "iPhone 14 Plus deals", href: "/3", },
-  { title: "Galaxy S23 deals", href: "/4", },
-  { title: "Galaxy S22 deals", href: "/5", },
-  { title: "iPhone 13 deals", href: "/1", },
-  { title: "iPhone 12 deals", href: "/2", },
-  { title: "iPhone 13 Plus deals", href: "/3", },
-  { title: "Galaxy S21 deals", href: "/4", },
-  { title: "Galaxy S21 plus deals", href: "/5", },
+  { title: "iPhone 15 deals", href: "/phones/1", },
+  { title: "iPhone 14 deals", href: "/phones/2", },
+  { title: "iPhone 14 Plus deals", href: "/phones/3", },
+  { title: "Galaxy S23 deals", href: "/phones/4", },
+  { title: "Galaxy S22 deals", href: "/phones/5", },
+  { title: "iPhone 13 deals", href: "/phones/1", },
+  { title: "iPhone 12 deals", href: "/phones/2", },
+  { title: "iPhone 13 Plus deals", href: "/phones/3", },
+  { title: "Galaxy S21 deals", href: "/phones/4", },
+  { title: "Galaxy S21 plus deals", href: "/phones/5", },
 ]
 
 export const latestPhones = [
-  { title: "iPhone 15 deals", href: "/1", },
-  { title: "iPhone 14 deals", href: "/2", },
-  { title: "iPhone 14 Plus deals", href: "/3", },
-  { title: "Galaxy S23 deals", href: "/4", },
-  { title: "Galaxy S22 deals", href: "/5", },
+  { title: "iPhone 15 deals", href: "/phones/1", },
+  { title: "iPhone 14 deals", href: "/phones/2", },
+  { title: "iPhone 14 Plus deals", href: "/phones/3", },
+  { title: "Galaxy S23 deals", href: "/phones/4", },
+  { title: "Galaxy S22 deals", href: "/phones/5", },
 ]
 
-
+export const planDetails=[
+  { title: "Upfront Cost", value:"₹3000" },
+  { title: "Total Cost", value:"₹30000" },
+  { title: "Contract Length", value:"12 Month" },
+  { title: "Minutes", value:"Unlimited" },
+  { title: "Texts", value:"100" },
+]
