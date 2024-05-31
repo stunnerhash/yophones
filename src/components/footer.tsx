@@ -1,3 +1,4 @@
+import { popularPhones } from "@/sample-data"
 import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react"
 import Link from "next/link"
 
@@ -16,12 +17,12 @@ export default function Footer() {
             </ul>
           </div>
           <div className="space-y-4">
-            <h4 className="text-lg font-medium text-gray-300">Products</h4>
+            <h4 className="text-lg font-medium text-gray-300">Popular Phones</h4>
             <ul className="space-y-2 text-sm">
-              <li> <Link className="hover:text-gray-300" href="#"> Energy </Link> </li>
-              <li> <Link className="hover:text-gray-300" href="#"> Broadband </Link> </li>
-              <li> <Link className="hover:text-gray-300" href="#"> Insurance </Link> </li>
-              <li> <Link className="hover:text-gray-300" href="#"> Money </Link> </li>
+              { popularPhones.slice(0,4).map((item)=>
+                  <li key={item.title}> <Link className="hover:text-gray-300" href={item.href}>{item.title}</Link> </li>
+                )
+              }
             </ul>
           </div>
           <div className="space-y-4">

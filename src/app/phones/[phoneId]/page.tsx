@@ -70,11 +70,11 @@ export default function Deals(
         </div>
       </div>
 
-      <div className="grid grid-cols-1 gap-6  md:grid-cols-[280px_1fr] md:p-6">
+      <div className=" grid grid-cols-1 gap-6  md:grid-cols-[280px_1fr] md:p-6">
         <Sidebar />
         <div className="grid gap-6">
 
-          <div className="flex flex-wrap gap-2 items-center justify-between">
+          <div className="mx-1 flex flex-wrap gap-2 items-center justify-between">
             <span className="flex items-center gap-2">
               <Label htmlFor="search"><Search /></Label>
               <Input id="search" placeholder="Search (eg. iPhone 14)" className="w-52 bg-secondary md:w-60" />
@@ -84,7 +84,7 @@ export default function Deals(
 
 
           {Array.from({ length: 8 }, (_, index) =>
-            <DealCard key={index} />
+            <DealCard key={index} className="mx-1" />
           )}
           <div className="flex justify-center m-4">
             <Button variant={'outline'} className="w-60 text-lg"> <ChevronsDown /> Load More</Button>
