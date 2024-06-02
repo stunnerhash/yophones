@@ -7,8 +7,7 @@ export default function Sidebar() {
   return (
     <div className="border-r p-4 md:p-4">
       <h2 className="text-lg font-semibold mb-4">Filter Deals</h2>
-      <Accordion type="single" >
-
+      <Accordion type="single" defaultValue="monthly-cost">
         <AccordionItem value="monthly-cost">
           <AccordionTrigger className="text-base">Monthly Cost</AccordionTrigger>
           <AccordionContent>
