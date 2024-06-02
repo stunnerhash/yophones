@@ -12,6 +12,7 @@ import {
 import Hamburger from "./hamburger"
 import { popularPhones } from "@/sample-data"
 import NavListItem from "@/components/header/nav-list-item"
+import BrandName from "./brand-name"
 
 export default function Navbar() {
   return (
@@ -23,9 +24,7 @@ export default function Navbar() {
         </NavigationMenuItem>
 
         <NavigationMenuItem>
-          <NavigationMenuLink href={'/'}>
-            <span className="mx-2 text-xl sm:text-md font-bold cursor-pointer">USWITCH</span>
-          </NavigationMenuLink >
+            <span className="mx-2"><BrandName/></span>
         </NavigationMenuItem>
 
         <NavigationMenuItem className="hidden md:block">

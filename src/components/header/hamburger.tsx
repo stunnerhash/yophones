@@ -6,6 +6,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import Link from "next/link";
 import { latestPhones, popularPhones } from "@/sample-data";
 import NavListItem from "./nav-list-item";
+import BrandName from "./brand-name";
 
 export default function Hamburger({className}:{className:string;}){
   return(
@@ -19,7 +20,7 @@ export default function Hamburger({className}:{className:string;}){
         </SheetTrigger>
         <SheetContent>
           <SheetHeader>
-            <SheetTitle className="font-bold text-xl">USWITCH</SheetTitle>
+            <SheetTitle><BrandName/></SheetTitle>
             <SheetDescription>Browse our selection of popular and latest phone deals.</SheetDescription>
           </SheetHeader>
           <Accordion collapsible type="single">

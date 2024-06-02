@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Lilita_One} from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header/header";
 import { Providers } from "./providers";
@@ -7,9 +7,10 @@ import Head from "next/head";
 import Footer from "@/components/footer";
 
 const inter = Inter({ subsets: ["latin"] });
+const lilita = Lilita_One({subsets:["latin"], weight:'400'})
 
 export const metadata: Metadata = {
-  title: "Uswitch",
+  title: "Yo Phones",
   description: "Your destination for comparing and switching services effortlessly, from energy providers to broadband plans and beyond.",
 };
 

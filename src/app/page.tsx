@@ -26,8 +26,8 @@ export default function Home() {
     <main>
       <div className="flex gap-6 bg-primary w-full px-6 p-10">
         <span>
-          <h1 className="text-4xl font-bold">Mobile Phone Deals</h1>
-          <p className="text-gray-300 py-4">
+          <h1 className="text-muted text-4xl font-bold">Mobile Phone Deals</h1>
+          <p className="text-muted py-4">
             Looking for a new phone contract? We can help you find your ideal handset on a pay monthly plan that suits your needs.
           </p>   
         </span>

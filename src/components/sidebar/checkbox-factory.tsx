@@ -8,7 +8,7 @@ type CheckboxOption = {
 
 export default function CheckboxFactory({data, id}:{data:CheckboxOption[], id: string}){
   return(
-    <div className="grid grid-cols-1 gap-2 text-primary-foreground">
+    <div className="grid grid-cols-1 gap-2 ">
       {data.map((option, index)=>(
         <div key={index} className="flex items-center space-x-2">
           <Checkbox id={`${id}-${index}`}/>
