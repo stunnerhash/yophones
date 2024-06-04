@@ -52,7 +52,7 @@ export default function Deal() {
             <div  className="flex flex-wrap gap-2">
               <Badge variant="outline" className="p-2 border-primary"> Claim 3 months free Apple Music and Arcade </Badge>
               <Badge variant="outline" className="p-2 border-primary"> Free roaming up to 30GB </Badge>
-              <Badge variant="outline" className="p-2 border-primary"> Uswitch Award Winner - Best Network for Data </Badge>
+              <Badge variant="outline" className="p-2 border-primary"> Yo Phones Award Winner - Best Network for Data </Badge>
             </div>
           </div>
 

@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
-import sampleData from "@/sample-data.json"
+import { sampleData } from "@/sample-data";
 import { ChevronsDown, Search } from "lucide-react";
 import { ReactNode } from "react";
 
@@ -35,8 +35,8 @@ export default function Home() {
 
       <div className="flex flex-wrap gap-2 items-center justify-between px-6 p-4">
         <span className="flex items-center gap-2">
-          <Label htmlFor="search"><Search/></Label>
           <Input id="search" placeholder="Search (eg. iPhone 14)" className="w-52 bg-secondary md:w-60"/>
+          <Label htmlFor="search"><Search/></Label>
         </span>
         <SortBy/>
       </div>
