@@ -1,3 +1,5 @@
+export const brandNames=[ "Apple", "Samsung", "Google", "Sony", "Oneplus" ]
+
 export const monthlyRadioData=[
   {label:"Up to ₹1000", value:"1000"},
   {label:"Up to ₹2000", value:"2000"},

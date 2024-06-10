@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function DealCard({className}:{className?:string;}){
   return(
       <Link href="/deals/0">
-    <div className={cn(className, "select-none cursor-pointer ")}>
+    <div className={cn(className, "select-none cursor-pointer rounded-lg shadow-md")}>
         <Card className="rounded-lg hover:border hover:border-primary transition-all">
           <CardHeader className="select-none cursor-pointer ">
             <CardTitle>iPhone 13 - 24 Months</CardTitle>

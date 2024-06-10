@@ -55,14 +55,13 @@ export default function Deals(
                     <div className="px-2 py-1 bg-muted cursor-pointer border rounded-sm font-semibold border-muted-foreground peer-checked:hidden">512</div>
                   </RadioGroup>
                 </div>
-
               </div>
             </div>
           </div>
  
           <div className="flex flex-col w-full group">
             <div
-              className="transitiona-all duration-1000 opacity-90 -inset-px bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] rounded-xl  group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt">
+              className="transitiona-all duration-1000 opacity-90 -inset-px bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] rounded-xl group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt">
               <p className="text-background text-xl font-bold px-4 pt-2">Hot deal</p>
               <DealCard className="m-2 relative z-10 rounded-lg"/>
             </div>

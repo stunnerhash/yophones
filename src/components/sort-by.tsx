@@ -3,6 +3,7 @@ import { DropdownMenuTrigger, DropdownMenuRadioItem, DropdownMenuRadioGroup, Dro
 import { ChevronDown } from "lucide-react";
 
 export default function SortBy(){
+
   return(
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -12,11 +13,10 @@ export default function SortBy(){
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuRadioGroup value="newest">
-          <DropdownMenuRadioItem value="newest">Best Selling</DropdownMenuRadioItem>
-          <DropdownMenuRadioItem value="cheapest">Monthly Cost</DropdownMenuRadioItem>
-          <DropdownMenuRadioItem value="most-data">Total Cost</DropdownMenuRadioItem>
-          <DropdownMenuRadioItem value="longest-contract">Data</DropdownMenuRadioItem>
+        <DropdownMenuRadioGroup value="best-selling" >
+          <DropdownMenuRadioItem value="best-selling">Best Selling</DropdownMenuRadioItem>
+          <DropdownMenuRadioItem value="monthly-cost">Monthly Cost</DropdownMenuRadioItem>
+          <DropdownMenuRadioItem value="total-cost">Total Cost</DropdownMenuRadioItem>
         </DropdownMenuRadioGroup>
       </DropdownMenuContent>
     </DropdownMenu>
