@@ -1,0 +1,76 @@
+import db from "@/db";
+
+interface SearchParams {
+  [key: string]: string | string[] | undefined 
+};
+
+function convertToFilter(value: string | string[] | undefined): string[] {
+  if (!value) {
+    return [];
+  }
+  return Array.isArray(value) ? value: [value];
+}
+
+function convertStringToFloat(value: string | undefined):number | null{
+  if (!value) {
+    return null;
+  }
+  const parsedValue = parseFloat(value);
+  return isNaN(parsedValue) ? null : parsedValue;
+}
+
+export async function getDeals(phoneId: number, searchParams: SearchParams){
+  try{
+    const page = typeof searchParams.page === 'string' ? parseInt(searchParams.page, 10) : 1;
+    const network = convertToFilter(searchParams.network);
+    const term = convertToFilter(searchParams.term);
+    const incData = searchParams.incData as string;
+    const upfrontCost = convertStringToFloat (searchParams.upfrontCost as string) ;
+    const monthlyCost = convertStringToFloat(searchParams.monthlyCost as string);
+
+    const pageSize = 10;
+    const phone = await db.phone.findUnique({
+      where:{
+        id: phoneId
+      }
+    })
+    const phoneName = phone?.name || '';
+    
+    const deals = await db.deal.findMany({
+      select:{
+        id:true,
+        name: true,
+        imageUrl:true,
+        brandName:true,
+        colour: true,
+        term: true,
+        network: true,
+        monthlyCost:true, 
+        upfrontCost: true,
+        incData: true,
+        incTexts: true,
+        storageSize:true,
+        promotionalText:true,
+        TelcosNetworkDetailsJson:true
+      },
+      where:{
+        name: {
+          contains: phoneName,
+        },
+        term: term.length > 0 ? { in: term} : undefined,
+        network: network.length > 0 ? {in: network} : undefined, 
+        incData: incData ? { gte:incData } : undefined,
+        monthlyCost: monthlyCost !== null? {lte: monthlyCost } : undefined,
+        upfrontCost: upfrontCost !== null? {lte: upfrontCost } : undefined,
+      },
+      take: page*pageSize,
+    })
+    const totalDeals = await db.deal.count()
+    return {deals, hasMore: totalDeals>page*pageSize}; 
+  }
+  catch(error){
+    console.error("Error fetching deals", error);
+    return {deals:[], hasMore:false};
+  }
+}
+

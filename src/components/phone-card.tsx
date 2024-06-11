@@ -13,13 +13,12 @@ type PhoneCardProps = {
 
 
 export default function PhoneCard({ data, className }: PhoneCardProps) {
-  const { imageUrl, name, colours, brandName, badge} = data;
+  const {id, imageUrl, name, colours, brandName, badge} = data;
 
-  console.log(colours);
   return (
     <Link 
-      href={{pathname:"/phones/[name]"}}
-      as={`phones/${encodeURIComponent(name.trim().replace(/ /g, "-"))}`}
+      href={{pathname:"/phones/[id]"}}
+      as={`phones/${id}`}
     >
       <div
         className={cn(
@@ -57,7 +56,7 @@ export default function PhoneCard({ data, className }: PhoneCardProps) {
             </div>
 
             <div className="flex items-center space-x-1">
-              <span className="font-bold text-lg">{name}</span>
+              <span className="font-bold text-lg truncate">{name}</span>
             </div>
             <div className="mt-2">
               <p className="text-md font-semibold">{brandName}</p>

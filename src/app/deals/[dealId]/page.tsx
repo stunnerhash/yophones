@@ -22,6 +22,7 @@ export default function Deal() {
               alt="empty"
               width={100}         
               height={160}
+              priority={false}
             />
             </div>
             <div className="flex flex-col gap-2  justify-around">
@@ -42,12 +43,13 @@ export default function Deal() {
               alt="empty"
               width={100}         
               height={50}
+              priority={false}
             />
             </div>
           </div>
 
           <div className="flex flex-col gap-4">
-            <b>Annual price rise</b> 
+            <b>Annual price rise</b>
             <p> Monthly cost shown will rise every April by Consumer Price Index (CPI) plus 3.9%. </p>
             <div  className="flex flex-wrap gap-2">
               <Badge variant="outline" className="p-2 border-primary"> Claim 3 months free Apple Music and Arcade </Badge>
