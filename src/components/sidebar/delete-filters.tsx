@@ -1,9 +1,8 @@
 "use client"
-import { usePathname, useSearchParams, useRouter} from 'next/navigation';
-import { Button } from '../ui/button';
+import { useSearchParams, useRouter} from 'next/navigation';
+import { Button } from '@/components/ui/button';
 
 export default function DeleteFilters() {
-  const pathname = usePathname();
   const searchParams = useSearchParams();
   const router = useRouter();
 

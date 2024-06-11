@@ -9,7 +9,7 @@ export default function Sidebar() {
     <div className="border-r p-4 md:p-4">
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-lg font-semibold ">Filter Deals</h2>
-        <DeleteFilters/>
+        <DeleteFilters />
       </div>
       <Accordion type="multiple">
         <AccordionItem value="monthly-cost">

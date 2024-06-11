@@ -52,6 +52,7 @@ export default function PhoneWidget({data}:{data: Phone}){
               ))}
             </RadioGroup>
           </div>
+
           <div>
             <Label htmlFor="storage-varient" className="text-sm font-semibold">Storage:</Label>
             <RadioGroup className="flex items-center text-sm" id="storage-varient">
