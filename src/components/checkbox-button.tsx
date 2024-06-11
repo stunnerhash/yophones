@@ -5,6 +5,7 @@ interface CheckboxButtonProps{
   children:ReactNode; 
   className?:string;
   checked?:boolean
+  defaultChecked?:boolean;
   onChange?:(event: React.ChangeEvent<HTMLInputElement>) => void; 
   name?:string
 }
@@ -13,6 +14,7 @@ export default function CheckboxButton({
   children,
   className,
   checked,
+  defaultChecked,
   onChange,
   name,
   ...rest
@@ -24,6 +26,7 @@ export default function CheckboxButton({
         className="hidden peer"
         checked={checked}
         onChange={onChange}
+        defaultChecked={defaultChecked}
         name={name}
         {...rest}
       />

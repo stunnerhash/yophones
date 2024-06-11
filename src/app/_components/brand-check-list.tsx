@@ -31,7 +31,7 @@ export default function BrandCheckList(){
       </div>
       <div className="flex flex-wrap items-center gap-1 gap-y-4">
         {brandNames.map((brand) => (
-          <CheckboxButton key={brand} name={brand} checked={selectedBrands.includes(brand)} onChange={handleBrandToggle}>
+          <CheckboxButton key={brand} name={brand} defaultChecked={selectedBrands.includes(brand)} onChange={handleBrandToggle}>
             {brand}
           </CheckboxButton>
         ))}
