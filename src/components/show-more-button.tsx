@@ -17,9 +17,9 @@ export default function ShowMoreButton({hasMore}:{hasMore: boolean}){
   return(
     <div className="relative flex justify-center items-center m-4 my-10">
       <div className="absolute inset-0 flex items-center">
-        <div className="w-full border-t border-gray-300"></div>
+        <div className="w-full border-t border-gray-400"></div>
       </div>
-      <Button onClick={showMore} variant={"outline"} className="relative gap-2 rounded-full px-10 shadow-md text-lg bg-white">
+      <Button onClick={showMore} variant={"outline"} className="relative gap-2 rounded-full border-gray-400 px-10 shadow-md text-md bg-background">
         <p>Show More</p> <ChevronDown/> 
       </Button>
     </div>

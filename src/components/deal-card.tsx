@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { Deal } from "@prisma/client";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
+import { Skeleton } from "./ui/skeleton";
 
 export default async function DealCard({
   className, 
@@ -46,4 +47,21 @@ export default async function DealCard({
       </div>
     </Link>
   )
+}
+
+export function DealCardSkeleton(){
+  return (
+    <Skeleton className="w-full h-40 p-4 ">
+      <span className="flex justify-between">
+        <Skeleton className="w-80 my-1 h-8 bg-background" />
+        <Skeleton className="w-32 my-1 h-8 bg-background" />
+      </span>
+      <Skeleton className="w-32 my-1 h-6 bg-background" />
+
+      <span className="flex justify-between items-end mt-2">
+        <Skeleton className="w-80 my-1 h-6 bg-background" />
+        <Skeleton className="w-28 my-1 h-8 bg-background" />
+      </span>
+    </Skeleton>
+  );
 }

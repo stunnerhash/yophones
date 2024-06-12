@@ -1,11 +1,7 @@
 import SortBy from "@/components/sort-by";
 import BrandCheckList from "./_components/brand-check-list";
-import PhoneCard from "@/components/phone-card";
-import ShowMoreButton from "@/components/show-more-button";
-import {getPhones} from "@/actions/get-phones";
 import SearchInput from "@/components/search";
 import { Suspense } from "react";
-import { Skeleton } from "@/components/ui/skeleton";
 import PhoneGrid, { PhoneGridSkeleton } from "./_components/phone-grid";
 
 interface SearchParams {
@@ -30,7 +26,6 @@ export default function Home({searchParams}:{searchParams:SearchParams}
         <SortBy />
       </div>
       <BrandCheckList />
-      <PhoneGridSkeleton/>
       <Suspense fallback={<PhoneGridSkeleton/>}>
         <PhoneGrid searchParams={searchParams}/>
       </Suspense>
