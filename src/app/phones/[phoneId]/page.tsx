@@ -1,8 +1,11 @@
 import Sidebar from "@/components/sidebar/sidebar"
+import DealCard from "@/components/deal-card"
 import SortBy from "@/components/sort-by";
-import PhoneWidget from "./_components/phone-widget";
+import ShowMoreButton from "@/components/show-more-button";
+import PhoneWidget, { PhoneWidgetSkeleton } from "./_components/phone-widget";
 import { Phone } from "@prisma/client";
 import { getPhoneById } from "@/actions/get-phone-by-id";
+import { getDeals } from "@/actions/get-deals";
 import SearchInput from "@/components/search";
 import DealGrid, { DealGridSkeleton } from "./_components/deal-grid";
 import HotDeal, { HotDealSkeleton } from "./_components/hot-deal";
@@ -22,13 +25,14 @@ export default async function Deals({
   };
 }) {
   const phoneId = parseInt(params.phoneId);
-  const phone = await getPhoneById(phoneId);
 
   return (
     <>
       <div className="bg-primary justify-center p-0 sm:px-10 sm:py-4">
         <div className=" grid grid-cols-1 gap-2 p-10 bg-background lg:grid-cols-2">
-          <PhoneWidget data={phone as Phone} />
+          <Suspense fallback={<PhoneWidgetSkeleton />}>
+            <PhoneWidget phoneId={phoneId} />
+          </Suspense>
           <Suspense fallback={<HotDealSkeleton />}>
             <HotDeal phoneId={phoneId} />
           </Suspense>
@@ -42,7 +46,7 @@ export default async function Deals({
             <SearchInput />
             <SortBy />
           </div>
-          <Suspense fallback={<DealGridSkeleton/>}>
+          <Suspense fallback={<DealGridSkeleton />}>
             <DealGrid searchParams={searchParams} phoneId={phoneId} />
           </Suspense>
         </div>
