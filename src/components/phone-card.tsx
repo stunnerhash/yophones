@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import { Phone } from "@prisma/client";
+import { Skeleton } from "./ui/skeleton";
 
 type PhoneCardProps = {
   data: Phone;
@@ -77,3 +78,14 @@ export default function PhoneCard({ data, className }: PhoneCardProps) {
   );
 }
 
+
+export function PhoneCardSkeleton(){
+  return(
+    <Skeleton className="w-72 h-80 p-2 gap-8">
+      <Skeleton className="mx-auto  bg-background h-40 w-24"/>
+      <Skeleton className="mx-auto my-2  bg-background w-3/4 h-6"/>
+      <Skeleton className="mx-auto my-2  bg-background w-1/2 h-4"/>
+      <Skeleton className="mx-auto my-2  bg-background w-1/2 h-4"/>
+    </Skeleton> 
+  )
+}

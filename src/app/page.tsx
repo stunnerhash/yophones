@@ -4,14 +4,16 @@ import PhoneCard from "@/components/phone-card";
 import ShowMoreButton from "@/components/show-more-button";
 import {getPhones} from "@/actions/get-phones";
 import SearchInput from "@/components/search";
+import { Suspense } from "react";
+import { Skeleton } from "@/components/ui/skeleton";
+import PhoneGrid, { PhoneGridSkeleton } from "./_components/phone-grid";
 
 interface SearchParams {
   [key: string]: string | string[] | undefined 
 };
 
-export default async function Home({searchParams}:{searchParams:SearchParams}
+export default function Home({searchParams}:{searchParams:SearchParams}
 ) {
-  const {phones, hasMore} = await getPhones(searchParams);
   return (
     <main>
       <div className="flex gap-6 bg-primary w-full px-6 p-10">
@@ -24,16 +26,14 @@ export default async function Home({searchParams}:{searchParams:SearchParams}
         </span>
       </div>
       <div className="flex flex-wrap gap-2 items-center justify-between px-6 p-4">
-        <SearchInput/>
+        <SearchInput />
         <SortBy />
       </div>
-      <BrandCheckList/>
-      <div className="flex flex-wrap gap-6 justify-center">
-          {phones.map((phone) => (
-            <PhoneCard key={phone.id} className="w-72" data={phone} />
-          ))}
-      </div>
-      <ShowMoreButton hasMore={hasMore}/>
+      <BrandCheckList />
+      <PhoneGridSkeleton/>
+      <Suspense fallback={<PhoneGridSkeleton/>}>
+        <PhoneGrid searchParams={searchParams}/>
+      </Suspense>
     </main>
   );
 }
