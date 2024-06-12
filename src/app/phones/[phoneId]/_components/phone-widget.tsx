@@ -1,6 +1,4 @@
 import { getPhoneById } from "@/actions/get-phone-by-id";
-import { Label } from "@/components/ui/label";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Skeleton } from "@/components/ui/skeleton";
 import Image from "next/image";
 
@@ -14,77 +12,43 @@ export default async function PhoneWidget({ phoneId }: { phoneId: number }) {
     <div className="flex gap-4">
       <div className="relative">
         <Image
-          className="w-full h-full min-h-48"
+          className="w-full min-w-20 min-h-40 max-h-48"
           src={imageUrl}
           alt={name}
           width={100}
           height={160}
-          sizes="100vw"
           priority={true}
         />
       </div>
       <div className="flex flex-col gap-2">
         <div className="grid gap-4">
           <div>
-            <p className="text-xl py-1 font-bold">{name}</p>
-            <p className="text-muted-foreground py-1 ">{brandName}</p>
+            <p className="text-md sm:text-xl py-1 font-bold">{name}</p>
+            <p className="text-sm text-muted-foreground py-1 ">{brandName}</p>
             <p className="text-xs py-1 text-muted-foreground">{description}</p>
           </div>
-          <div>
-            <Label htmlFor="color-varient" className="text-sm font-semibold">
-              Color:
-            </Label>
-            <RadioGroup
-              className="flex items-center"
-              id="color-varient"
-              defaultValue={colours[0]}
-            >
-              {colours.map((colour) => (
-                <>
-                  <RadioGroupItem
-                    key={colour}
-                    id={colour}
-                    value={colour}
-                    className="peer sr-only"
-                  />
-                  <Label
-                    htmlFor={colour}
-                    className={
-                      "border cursor-pointer border-foreground size-6 bg-red-400 rounded-full"
-                    }
-                    style={{ backgroundColor: colour }}
-                  />
-                </>
-              ))}
-            </RadioGroup>
+
+          <div className="flex items-center gap-2" >
+            {colours.map((colour) => (
+              <span key={colour}>
+                <label key={colour} htmlFor={colour} className= "cursor-pointer" >
+                  <input type="radio" id={colour} name="colour" value={colour} className="peer sr-only" />
+                  <div className="size-6 rounded-full ring-offset-1 ring-current peer-checked:ring-2 " style={{ backgroundColor: colour, color: colour}} />
+                </label>
+              </span>
+            ))}
           </div>
 
-          <div>
-            <Label htmlFor="storage-varient" className="text-sm font-semibold">
-              Storage:
-            </Label>
-            <RadioGroup
-              defaultValue="128 GB"
-              className="flex items-center text-sm"
-              id="storage-varient"
-            >
-              {storageSize.map((item) => (
-                <>
-                  <RadioGroupItem
-                    key={item}
-                    id={item}
-                    value={item}
-                    className="peer text-foreground"
-                  />
-                  <Label
-                    htmlFor={item}
-                    className="p-2 bg-muted cursor-pointer rounded-sm font-semibold peer-checked:border peer-checked:border-primary"
-                  >
-                    {item}
-                  </Label>
-                </>
-              ))}
-            </RadioGroup>
+          <div className="flex gap-2 text-xs sm:text-sm font-semibold">
+            {storageSize.map((item) => (
+              <span key={item}>
+                <input type="radio" id={item} name="storage" value={item} className="peer sr-only" />
+                <label key={item} htmlFor={item}
+                  className={`text-nowrap p-2 bg-muted cursor-pointer rounded-sm font-semibold border-primary ring-offset-1 ring-primary peer-checked:ring`}
+                > {item}
+                </label>
+              </span>
+            ))}
           </div>
         </div>
       </div>

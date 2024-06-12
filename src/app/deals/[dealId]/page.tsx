@@ -6,43 +6,78 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Separator } from "@/components/ui/separator";
-import { planDetails } from "@/sample-data";
 import Image from "next/image";
+import { getDealById } from "@/actions/get-deal-by-id";
+import { Button } from "@/components/ui/button";
+import { ArrowRight} from "lucide-react";
+import Link from "next/link";
 
-export default function Deal() {
+export default async function Deal({params}: {params:{dealId:string;}}) {
+  const dealId = parseInt(params.dealId);
+  const deal = await getDealById({dealId});
+  if(!deal) return(<></>);
+
+  const {
+    name, 
+    brandName, 
+    imageUrl, 
+    upfrontCost, 
+    monthlyCost, 
+    incData, 
+    incTexts, 
+    incMinutes,
+    term,
+    colour,
+    TelcosNetworkDetailsJson,
+    storageSize,
+    basketLink,
+    TelcosDealPromoInfo
+  } = deal; 
+  const networkImageUrl = JSON.parse(TelcosNetworkDetailsJson || '{}')?.logo_url;
+  const promoBadgeData = TelcosDealPromoInfo?.split("*");
+  const planDetails=[
+    { title: "Upfront Cost", value: '$'+ upfrontCost },
+    { title: "Contract Length", value:term +" Month/s"},
+    { title: "Minutes", value: incMinutes },
+    { title: "Texts", value:incTexts},
+    { title: "Data", value:incData + " GB"},
+   ]
+
   return (
     <>
-      <div className="bg-primary justify-center sm:px-10 sm:py-4 " >
+      <div className="bg-primary justify-center md:px-10 md:py-4 " >
         <div className="bg-background p-8">
         <div className="mb-6 grid gap-2 md:grid-cols-[auto_1fr_auto] grid-cols-[1fr_2fr_1fr] lg:gap-4">
             <div>
-            <Image
-              className="" 
-              src="https://img.uswitch.com/qhi9fkhtpbo3/10Hn8ycopZ1kdXxTDEUZcE/b1e39800882b7a1794f0d81b59ccf37c/iphone15-front-black.png"
-              alt="empty"
-              width={100}         
-              height={160}
-              priority={false}
-            />
+              <Image
+                className="w-full max-h-49"
+                src={imageUrl || ''}
+                alt={name || ''}
+                width={100}
+                height={160}
+                sizes="100vw"
+                priority={true}
+              />
             </div>
             <div className="flex flex-col gap-2  justify-around">
               <div className="">
-                <p className="text-md font-semibold">Apple iPhone 15 plus 128gb </p>
+                <p className="text-md font-semibold">{name}</p>
+                <p className="text-sm text-muted-foreground">{brandName}</p>
+                <p className="text-sm font-bold">{storageSize}</p>
               </div>
               <div className="text-sm grid gap-2">
-                <p>£69.00 upfront</p>
-                <p>500GB 5G data</p>
-                <p>£29.99 per month</p>
-                <p>£788.76 total cost</p>
+                <p><span className="font-semibold">${upfrontCost}</span> upfront</p>
+                <p><span className="font-semibold">{incData} GB</span> data</p>
+                <p><span className="font-semibold">${monthlyCost}</span> per month</p>
               </div>
             </div>
           <div >
             <Image
-              className="" 
-              src="https://img.uswitch.com/qhi9fkhtpbo3/3EUyDd1Ztjo30hNN3PxxpA/60e6d35353bcbd2b57ba58041ae5e631/ID-Mobile-logo.png"
+              className="size-10" 
+              src={networkImageUrl}
               alt="empty"
-              width={100}         
-              height={50}
+              width={40}
+              height={40}
               priority={false}
             />
             </div>
@@ -52,14 +87,13 @@ export default function Deal() {
             <b>Annual price rise</b>
             <p> Monthly cost shown will rise every April by Consumer Price Index (CPI) plus 3.9%. </p>
             <div  className="flex flex-wrap gap-2">
-              <Badge variant="outline" className="p-2 border-primary"> Claim 3 months free Apple Music and Arcade </Badge>
-              <Badge variant="outline" className="p-2 border-primary"> Free roaming up to 30GB </Badge>
-              <Badge variant="outline" className="p-2 border-primary"> Yo Phones Award Winner - Best Network for Data </Badge>
+              {promoBadgeData?.slice(0,6).map(item =>
+                item && <Badge key={item} variant="outline" className="p-2 border-primary"> {item}</Badge>
+              )}
             </div>
           </div>
 
           <Accordion collapsible type="single">
-
             <AccordionItem value="plan-details">
               <AccordionTrigger className="text-base">Plan details</AccordionTrigger>
               <AccordionContent className="flex flex-col gap-2">
@@ -75,6 +109,13 @@ export default function Deal() {
               </AccordionContent>
             </AccordionItem>
           </Accordion>
+
+          <Link href={basketLink || ''} >
+            <Button variant={"link"} className="bg-primary text-background my-4 p-6 animate-out"> 
+              Choose deal 
+              <ArrowRight/>
+            </Button>
+          </Link>
         </div>
       </div>
       <div>

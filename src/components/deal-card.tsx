@@ -5,6 +5,7 @@ import { Deal } from "@prisma/client";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 import { Skeleton } from "./ui/skeleton";
+import Image from "next/image";
 
 export default async function DealCard({
   className, 
@@ -19,7 +20,23 @@ export default async function DealCard({
     return null;
   }
   
-  const {id, name, imageUrl,  brandName, colour, term, network, monthlyCost, upfrontCost, incData, incTexts, storageSize, promotionalText} = data;
+  const {
+    id, 
+    name, 
+    // imageUrl,  
+    // brandName, 
+    // colour, 
+    term, 
+    network, 
+    monthlyCost, 
+    // upfrontCost, 
+    incData, 
+    // storageSize, 
+    promotionalText,
+    TelcosNetworkDetailsJson,
+  } = data;
+
+  const networkImageUrl = JSON.parse(TelcosNetworkDetailsJson || '{}')?.logo_url;
 
   return(
     <Link href="/deals/[id]" as={`/deals/${id}`}>
@@ -27,7 +44,19 @@ export default async function DealCard({
         <Card className="rounded-lg hover:border hover:border-primary transition-all">
           <CardHeader className="select-none cursor-pointer ">
             <CardTitle className="text-md sm:text-lg flex justify-between">
-              <span>{name}</span>
+              <span className="flex items-center">
+                <Image
+                  className="size-6 mx-1"
+                  src={networkImageUrl|| ''}
+                  alt={name || ''}
+                  width={10}
+                  height={10}
+                  sizes="100vw"
+                  priority={true}
+                />
+
+                {name}
+              </span>
               <span>{term} Months</span>
             </CardTitle>
             <CardDescription>

@@ -1,11 +1,6 @@
 import Sidebar from "@/components/sidebar/sidebar"
-import DealCard from "@/components/deal-card"
 import SortBy from "@/components/sort-by";
-import ShowMoreButton from "@/components/show-more-button";
 import PhoneWidget, { PhoneWidgetSkeleton } from "./_components/phone-widget";
-import { Phone } from "@prisma/client";
-import { getPhoneById } from "@/actions/get-phone-by-id";
-import { getDeals } from "@/actions/get-deals";
 import SearchInput from "@/components/search";
 import DealGrid, { DealGridSkeleton } from "./_components/deal-grid";
 import HotDeal, { HotDealSkeleton } from "./_components/hot-deal";
@@ -29,7 +24,7 @@ export default async function Deals({
   return (
     <>
       <div className="bg-primary justify-center p-0 sm:px-10 sm:py-4">
-        <div className=" grid grid-cols-1 gap-2 p-10 bg-background lg:grid-cols-2">
+        <div className=" grid grid-cols-1 gap-4 p-2 sm:p-10 bg-background lg:grid-cols-2">
           <Suspense fallback={<PhoneWidgetSkeleton />}>
             <PhoneWidget phoneId={phoneId} />
           </Suspense>
