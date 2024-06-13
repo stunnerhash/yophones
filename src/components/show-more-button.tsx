@@ -13,7 +13,8 @@ export default function ShowMoreButton({hasMore}:{hasMore: boolean}){
     params.set('page', nextPage.toString());
     router.push(`?${params.toString()}`, {scroll:false});
   };
-
+  if(!hasMore) return null
+  
   return(
     <div className="relative flex justify-center items-center m-4 my-10">
       <div className="absolute inset-0 flex items-center">

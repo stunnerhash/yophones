@@ -34,9 +34,9 @@ export default async function Deals({
         </div>
       </div>
 
-      <div className=" grid grid-cols-1 gap-6  md:grid-cols-[280px_1fr] md:p-6">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-[280px_1fr] md:p-6">
         <Sidebar />
-        <div className="grid gap-6">
+        <div className="flex flex-col gap-6">
           <div className="mx-1 flex flex-wrap gap-2 items-center justify-between">
             <SearchInput />
             <SortBy />

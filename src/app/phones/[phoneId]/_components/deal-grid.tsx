@@ -15,8 +15,13 @@ export default async function DealGrid({
   const { deals, hasMore } = await getDeals(phoneId, searchParams);
   return (
     <>
+      {!deals.length && 
+        <div className="flex items-center justify-center text-muted-foreground h-full min-h-60 text-xl">
+          No deals found 
+        </div>
+      } 
       {deals.map((deal) => (
-        <DealCard key={deal.id} data={deal} className="mx-1" />
+        <DealCard key={deal.id} data={deal}/>
       ))}
       <ShowMoreButton hasMore={hasMore} />
     </>

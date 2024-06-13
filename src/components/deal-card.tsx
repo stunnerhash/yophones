@@ -80,7 +80,7 @@ export default async function DealCard({
 
 export function DealCardSkeleton(){
   return (
-    <Skeleton className="w-full h-40 p-4 ">
+    <Skeleton className="w-full h-48 p-4 ">
       <span className="flex justify-between">
         <Skeleton className="w-80 my-1 h-8 bg-background" />
         <Skeleton className="w-32 my-1 h-8 bg-background" />

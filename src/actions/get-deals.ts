@@ -1,20 +1,17 @@
 import db from "@/db";
+import { Prisma } from "@prisma/client";
 
 interface SearchParams {
   [key: string]: string | string[] | undefined 
 };
 
 function convertToFilter(value: string | string[] | undefined): string[] {
-  if (!value) {
-    return [];
-  }
+  if (!value) return [];
   return Array.isArray(value) ? value: [value];
 }
 
 function convertStringToFloat(value: string | undefined):number | null{
-  if (!value) {
-    return null;
-  }
+  if (!value) return null;
   const parsedValue = parseFloat(value);
   return isNaN(parsedValue) ? null : parsedValue;
 }
@@ -28,6 +25,10 @@ export async function getDeals(phoneId: number, searchParams: SearchParams){
     const upfrontCost = convertStringToFloat (searchParams.upfrontCost as string) ;
     const monthlyCost = convertStringToFloat(searchParams.monthlyCost as string);
 
+    const storageSize = searchParams.storageSize as string;
+    // const searchTerm = searchParams.search === 'string' ? searchParams.search : '';
+    const colour = typeof searchParams.colour === 'string' ? searchParams.colour : '';
+
     const pageSize = 10;
     const phone = await db.phone.findUnique({
       where:{
@@ -36,36 +37,46 @@ export async function getDeals(phoneId: number, searchParams: SearchParams){
     })
     const phoneName = phone?.name || '';
     
+    const select = {
+      id:true,
+      name: true,
+      imageUrl:true,
+      brandName:true,
+      colour: true,
+      term: true,
+      network: true,
+      monthlyCost:true, 
+      upfrontCost: true,
+      incData: true,
+      incTexts: true,
+      storageSize:true,
+      promotionalText:true,
+      TelcosNetworkDetailsJson:true
+    }
+
+    const where = {
+      name: {
+        contains: phoneName, 
+        mode: Prisma.QueryMode.insensitive,
+      },
+      term: term.length > 0 ? { in: term } : undefined,
+      network: network.length > 0 ? { in: network } : undefined,
+      incData: incData ? { gte: incData } : undefined,
+      monthlyCost: monthlyCost !== null ? { lte: monthlyCost } : undefined,
+      upfrontCost: upfrontCost !== null ? { lte: upfrontCost } : undefined,
+      colour: colour !== null ? { contains: colour, mode: Prisma.QueryMode.insensitive } : undefined,
+      storageSize: storageSize !== null ? { contains: storageSize, mode: Prisma.QueryMode.insensitive } : undefined,
+    }
+
     const deals = await db.deal.findMany({
-      select:{
-        id:true,
-        name: true,
-        imageUrl:true,
-        brandName:true,
-        colour: true,
-        term: true,
-        network: true,
-        monthlyCost:true, 
-        upfrontCost: true,
-        incData: true,
-        incTexts: true,
-        storageSize:true,
-        promotionalText:true,
-        TelcosNetworkDetailsJson:true
-      },
-      where:{
-        name: {
-          contains: phoneName,
-        },
-        term: term.length > 0 ? { in: term} : undefined,
-        network: network.length > 0 ? {in: network} : undefined, 
-        incData: incData ? { gte:incData } : undefined,
-        monthlyCost: monthlyCost !== null? {lte: monthlyCost } : undefined,
-        upfrontCost: upfrontCost !== null? {lte: upfrontCost } : undefined,
-      },
+      select:select,    
+      where:where,
       take: page*pageSize,
     })
-    const totalDeals = await db.deal.count()
+    const totalDeals = await db.deal.count({
+      where:where    
+    })
+
     return {deals, hasMore: totalDeals>page*pageSize}; 
   }
   catch(error){

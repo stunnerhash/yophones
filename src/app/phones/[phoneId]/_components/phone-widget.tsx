@@ -1,12 +1,13 @@
 import { getPhoneById } from "@/actions/get-phone-by-id";
 import { Skeleton } from "@/components/ui/skeleton";
 import Image from "next/image";
+import ColourSelect from "./colour-select";
+import StorageSelect from "./storage-select";
 
 export default async function PhoneWidget({ phoneId }: { phoneId: number }) {
   const phone = await getPhoneById(phoneId);
-  if (!phone) {
-    return <></>;
-  }
+  if (!phone) return null; 
+
   const { name, imageUrl, brandName, description, storageSize, colours } = phone;
   return (
     <div className="flex gap-4">
@@ -28,28 +29,9 @@ export default async function PhoneWidget({ phoneId }: { phoneId: number }) {
             <p className="text-xs py-1 text-muted-foreground">{description}</p>
           </div>
 
-          <div className="flex items-center gap-2" >
-            {colours.map((colour) => (
-              <span key={colour}>
-                <label key={colour} htmlFor={colour} className= "cursor-pointer" >
-                  <input type="radio" id={colour} name="colour" value={colour} className="peer sr-only" />
-                  <div className="size-6 rounded-full ring-offset-1 ring-current peer-checked:ring-2 " style={{ backgroundColor: colour, color: colour}} />
-                </label>
-              </span>
-            ))}
-          </div>
+          <ColourSelect colours={colours}/>
+          <StorageSelect storageSize={storageSize}/>
 
-          <div className="flex gap-2 text-xs sm:text-sm font-semibold">
-            {storageSize.map((item) => (
-              <span key={item}>
-                <input type="radio" id={item} name="storage" value={item} className="peer sr-only" />
-                <label key={item} htmlFor={item}
-                  className={`text-nowrap p-2 bg-muted cursor-pointer rounded-sm font-semibold border-primary ring-offset-1 ring-primary peer-checked:ring`}
-                > {item}
-                </label>
-              </span>
-            ))}
-          </div>
         </div>
       </div>
     </div>

@@ -13,7 +13,7 @@ export default async function PhoneGrid({
   const { phones, hasMore } = await getPhones(searchParams);
   return (
     <>
-      <div className="flex flex-wrap gap-6 justify-center">
+      <div className="flex flex-wrap gap-6 my-6 justify-center">
         {phones.map((phone) => (
           <PhoneCard key={phone.id} className="w-72" data={phone} />
         ))}

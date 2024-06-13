@@ -13,7 +13,6 @@ function convertToFilter(value: string | string[] | undefined): string[] {
 
 export async function getPhones(searchParams: SearchParams) {
   try{
-
     const page = typeof searchParams.page === 'string' ? parseInt(searchParams.page, 10) : 1;
     const pageSize = 4;
     const selectedBrands = convertToFilter(searchParams.brand); 
