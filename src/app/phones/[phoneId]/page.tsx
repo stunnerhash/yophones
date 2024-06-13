@@ -20,6 +20,9 @@ export default async function Deals({
   };
 }) {
   const phoneId = parseInt(params.phoneId);
+  const suspenseKey = Object.values(searchParams)
+    .flatMap(value => value)
+    .join('') || 'all';
 
   return (
     <>
@@ -41,7 +44,7 @@ export default async function Deals({
             <SearchInput />
             <SortBy />
           </div>
-          <Suspense fallback={<DealGridSkeleton />}>
+          <Suspense key={suspenseKey}  fallback={<DealGridSkeleton />}>
             <DealGrid searchParams={searchParams} phoneId={phoneId} />
           </Suspense>
         </div>

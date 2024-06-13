@@ -27,7 +27,6 @@ export default async function Deal({params}: {params:{dealId:string;}}) {
     incTexts, 
     incMinutes,
     term,
-    colour,
     TelcosNetworkDetailsJson,
     storageSize,
     basketLink,

@@ -10,6 +10,9 @@ interface SearchParams {
 
 export default function Home({searchParams}:{searchParams:SearchParams}
 ) {
+  const suspenseKey = Array.isArray(searchParams.brand)
+    ? searchParams.brand.join('')
+    : searchParams.brand || 'all';
   return (
     <main>
       <div className="flex gap-6 bg-primary w-full px-6 p-10">
@@ -26,7 +29,7 @@ export default function Home({searchParams}:{searchParams:SearchParams}
         <SortBy />
       </div>
       <BrandCheckList />
-      <Suspense fallback={<PhoneGridSkeleton/>}>
+      <Suspense key={suspenseKey} fallback={<PhoneGridSkeleton/>}>
         <PhoneGrid searchParams={searchParams}/>
       </Suspense>
     </main>

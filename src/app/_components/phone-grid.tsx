@@ -1,6 +1,7 @@
 import { getPhones } from "@/actions/get-phones";
 import PhoneCard, { PhoneCardSkeleton } from "@/components/phone-card";
 import ShowMoreButton from "@/components/show-more-button";
+import { Suspense } from "react";
 
 interface SearchParams {
   [key: string]: string | string[] | undefined;
