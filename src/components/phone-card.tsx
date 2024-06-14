@@ -51,7 +51,8 @@ export default function PhoneCard({ data, className }: PhoneCardProps) {
               {colours.map((colour) => (
                 <div
                   key={colour}
-                  className={cn("w-4 h-1.5 border rounded-full", `bg-${colour}`)}
+                  className={"w-4 h-1.5 rounded-full"}
+                  style={{ backgroundColor: colour}}
                 />
               ))}
             </div>
