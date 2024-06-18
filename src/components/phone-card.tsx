@@ -32,12 +32,11 @@ export default function PhoneCard({ data, className }: PhoneCardProps) {
             <div className="w-full transform translate-x-1  transition-all">
               <Image
                 alt={name}
-                className="mx-auto max-h-40 object-contain"
+                className="mx-auto min-h-40 w-full max-h-40 object-contain"
                 height="150"
                 src={imageUrl}
                 width="80"
                 priority={true}
-                layout="responsive"
               />
             </div>
             {badge && (

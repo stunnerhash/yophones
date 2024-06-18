@@ -18,7 +18,7 @@ export default async function PhoneWidget({ phoneId }: { phoneId: number }) {
           alt={name}
           width={100}
           height={160}
-          priority={true}
+          // priority={true}
         />
       </div>
       <div className="flex flex-col gap-2">

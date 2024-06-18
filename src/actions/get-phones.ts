@@ -11,7 +11,7 @@ function convertToFilter(value: string | string[] | undefined): string[] {
   return Array.isArray(value) ? value: [value];
 }
 
-export async function getPhones(searchParams: SearchParams) {
+export async function getPhones(searchParams: SearchParams = {}) {
   try{
     const page = typeof searchParams.page === 'string' ? parseInt(searchParams.page, 10) : 1;
     const pageSize = 4;
@@ -34,7 +34,7 @@ export async function getPhones(searchParams: SearchParams) {
     });
     return {phones, hasMore:totalPhones>page*pageSize};
   }catch(error){
-    console.error("Error fetching deals", error);
+    console.error("Error fetching phones", error);
     return {phones:[], hasMore:false}
   }
 };

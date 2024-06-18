@@ -1,12 +1,12 @@
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 import { Button } from "@/components//ui/button"
-import { ArrowRight, MenuIcon } from "lucide-react"
+import { MenuIcon } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import Link from "next/link";
 import { latestPhones, popularPhones } from "@/sample-data";
 import NavListItem from "./nav-list-item";
 import BrandName from "./brand-name";
+import NavList from "./nav-list";
 
 export default function Hamburger({className}:{className:string;}){
   return(
@@ -24,43 +24,19 @@ export default function Hamburger({className}:{className:string;}){
             <SheetDescription>Browse our selection of popular and latest phone deals.</SheetDescription>
           </SheetHeader>
           <Accordion collapsible type="single">
-
             <AccordionItem value="popular-phones">
               <AccordionTrigger className="text-base">Popular Phones</AccordionTrigger>
               <AccordionContent>
-                <ul >
-                  {popularPhones.map((phone)=>
-                    <NavListItem
-                        key={phone.title}
-                        title={phone.title}
-                        href={phone.href}
-                        className="space-y-0"
-                      >
-                      </NavListItem>
-                  )}
-                </ul>
+                <NavList phones={popularPhones}/>
               </AccordionContent>
             </AccordionItem>
-
             <AccordionItem value="latest-phones">
               <AccordionTrigger className="text-base">Latest Phones</AccordionTrigger>
               <AccordionContent>
-                <ul >
-                  {latestPhones.map((phone)=>
-                    <NavListItem
-                      key={phone.title}
-                      title={phone.title}
-                      href={phone.href}
-                      className="space-y-0"
-                    >
-                    </NavListItem>
-                  )}
-                </ul>
+                <NavList phones={popularPhones}/>
               </AccordionContent>
             </AccordionItem>
-
           </Accordion> 
-
         </SheetContent>
       </Sheet>
     </div>

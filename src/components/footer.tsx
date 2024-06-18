@@ -1,6 +1,7 @@
 import { popularPhones } from "@/sample-data"
 import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react"
 import Link from "next/link"
+import ThemeSwitch from "./header/theme-switch"
 
 export default function Footer() {
   return (
@@ -46,24 +47,25 @@ export default function Footer() {
         </div>
         <div className="mt-8 border-t border-gray-800 pt-8">
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-            <p className="text-sm">© 2024 Stunnerhash All rights reserved.</p>
+            <p className="text-sm">© {new Date().getFullYear()} Stunnerhash All rights reserved.</p>
             <div className="flex items-center gap-4">
               <Link className="text-gray-400 hover:text-gray-300" href="#">
-                <Twitter className="h-5 w-5" />
+                <Twitter className="h-6 w-6" />
                 <span className="sr-only">Twitter</span>
               </Link>
               <Link className="text-gray-400 hover:text-gray-300" href="#">
-                <Facebook className="h-5 w-5" />
+                <Facebook className="h-6 w-6" />
                 <span className="sr-only">Facebook</span>
               </Link>
               <Link className="text-gray-400 hover:text-gray-300" href="#">
-                <Instagram className="h-5 w-5" />
+                <Instagram className="h-6 w-6" />
                 <span className="sr-only">Instagram</span>
               </Link>
               <Link className="text-gray-400 hover:text-gray-300" href="#">
-                <Linkedin className="h-5 w-5" />
+                <Linkedin className="h-6 w-6" />
                 <span className="sr-only">LinkedIn</span>
               </Link>
+              <ThemeSwitch/>
             </div>
           </div>
         </div>
