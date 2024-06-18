@@ -9,7 +9,6 @@ import {
 } from "@/components/ui/navigation-menu"
 import Hamburger from "./hamburger"
 import BrandName from "./brand-name"
-import NavListItem from "./nav-list-item"
 import { Phone } from "@prisma/client"
 import NavList from "./nav-list"
 
@@ -24,7 +23,7 @@ export default function NavbarContent({
     <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
-          <Hamburger className="md:hidden"/>
+          <Hamburger className="md:hidden" popularPhones={popularPhones} latestPhones={latestPhones}/>
         </NavigationMenuItem>
         <NavigationMenuItem>
             <span className="mx-2"><BrandName/></span>

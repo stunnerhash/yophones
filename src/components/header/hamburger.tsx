@@ -1,14 +1,22 @@
+"use client"
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 import { Button } from "@/components//ui/button"
 import { MenuIcon } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { latestPhones, popularPhones } from "@/sample-data";
-import NavListItem from "./nav-list-item";
 import BrandName from "./brand-name";
+import { Phone } from "@prisma/client";
 import NavList from "./nav-list";
 
-export default function Hamburger({className}:{className:string;}){
+export default function Hamburger({
+  popularPhones, 
+  latestPhones, 
+  className
+}:{
+    popularPhones: Phone[];
+    latestPhones: Phone[];
+    className:string;
+  }){
   return(
     <div className={cn(className)}>
       <Sheet>
@@ -33,7 +41,7 @@ export default function Hamburger({className}:{className:string;}){
             <AccordionItem value="latest-phones">
               <AccordionTrigger className="text-base">Latest Phones</AccordionTrigger>
               <AccordionContent>
-                <NavList phones={popularPhones}/>
+                <NavList phones={latestPhones}/>
               </AccordionContent>
             </AccordionItem>
           </Accordion> 
