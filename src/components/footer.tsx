@@ -47,7 +47,7 @@ export default function Footer() {
         </div>
         <div className="mt-8 border-t border-gray-800 pt-8">
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-            <p className="text-sm">© {new Date().getFullYear()} Stunnerhash All rights reserved.</p>
+            <p className="text-sm">© {new Date().getFullYear()} Yo Phones All rights reserved.</p>
             <div className="flex items-center gap-4">
               <Link className="text-gray-400 hover:text-gray-300" href="#">
                 <Twitter className="h-6 w-6" />

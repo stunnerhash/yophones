@@ -8,7 +8,7 @@ export default function DeleteFilters() {
 
   const handleClearFilters = () => {
     const params = new URLSearchParams(searchParams);
-    const filtersToRemove = ['monthlyCost', 'upfrontCost', 'incData', 'network', 'term'];
+    const filtersToRemove = ['minMonthlyCost', 'maxMonthlyCost', 'upfrontCost', 'incData', 'network', 'term'];
     filtersToRemove.forEach(filter=> params.delete(filter))   
     router.push(`?${params.toString()}`, {scroll:false})
   };

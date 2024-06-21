@@ -29,7 +29,7 @@ export default function PhoneCard({ data, className }: PhoneCardProps) {
       >
         <Card className="w-full select-none rounded-lg shadow-md group">
           <div className="relative pt-2">
-            <div className="w-full transform translate-x-1  transition-all">
+            <div className="w-full transform translate-x-1  transition-all select-none">
               <Image
                 alt={name}
                 className="mx-auto min-h-40 w-full max-h-40 object-contain"
@@ -37,6 +37,7 @@ export default function PhoneCard({ data, className }: PhoneCardProps) {
                 src={imageUrl}
                 width="80"
                 priority={true}
+                draggable="false"
               />
             </div>
             {badge && (

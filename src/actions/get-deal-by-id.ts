@@ -10,5 +10,4 @@ export function getDealById({dealId}:{dealId: number}){
   }catch(error){
     console.log("Error fetching deal by id", error)
   }
-  
 }

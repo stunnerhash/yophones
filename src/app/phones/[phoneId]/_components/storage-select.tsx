@@ -5,7 +5,8 @@ import { useState } from "react";
 export default function StorageSelect({storageSize}:{storageSize:string[]}){
   const searchParams = useSearchParams();
   const router = useRouter()
-  const [selectedStorage, setSelectedStorage] = useState(searchParams.get('storageSize'))
+  const [selectedStorage, setSelectedStorage] = useState(searchParams.get('storageSize') || '')
+
   function handleChange(e:React.ChangeEvent<HTMLInputElement>){
     const {name,value} = e.target;
     const params = new URLSearchParams(searchParams);
@@ -23,13 +24,15 @@ export default function StorageSelect({storageSize}:{storageSize:string[]}){
           <input type="radio" id={storage} 
             name="storageSize" 
             value={storage} 
+            autoComplete="off"
+            // defaultValue={selectedStorage}
             checked={selectedStorage===storage} 
             className="peer sr-only"  
             onChange={handleChange}
           />
           <label 
             htmlFor={storage}
-            className={`text-nowrap p-2 bg-muted cursor-pointer rounded-sm font-semibold border-primary ring-offset-1 ring-primary peer-checked:ring`}
+            className={"text-nowrap p-2 bg-muted cursor-pointer rounded-sm font-semibold border-primary ring-offset-1 ring-primary peer-checked:ring"}
           > {storage}
           </label>
         </span>

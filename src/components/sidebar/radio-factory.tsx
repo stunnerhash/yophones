@@ -1,38 +1,46 @@
 "use client"
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
-import { Label } from "@/components/ui/label"
 import { useRouter, useSearchParams } from "next/navigation";
+import { Label } from "../ui/label";
+import { Input } from "../ui/input";
+import { useURL } from "@/hooks/use-url";
 
 type RadioOption = {
   value: string;
   label: string;
 };
 
-export default function RadioFactory({ data, id }: { data: RadioOption[], id: string }) {
+export default function RadioFactory({
+  data,
+  id,
+}: {
+  data: RadioOption[];
+  id: string;
+}) {
   const searchParams = useSearchParams();
-  const router = useRouter();
-  const currentValue = searchParams.get(id) || '';
-
-  const handleChange = (value: string) => {
-    const params = new URLSearchParams(searchParams);
-    params.set(id, value.toString());
-    router.push(`?${params.toString()}`, {scroll:false});
-  };
+  const currentValue = searchParams.get(id) || "";
+  const { updateSingleValue } = useURL();
 
   return (
-    <RadioGroup defaultValue={currentValue} onValueChange={handleChange} id={id}>
-      {data.map(option => (
-        <div key={option.value} className="flex items-center space-x-2">
-          <RadioGroupItem
+    <div className="grid grid-cols-3 gap-2">
+      {data.map((option) => (
+        <Label
+          key={option.value}
+          htmlFor={id + option.value}
+          className="flex justify-center font-normal rounded-sm bg-background border-secondary text-center border text-nowrap transition-all cursor-pointer has-[input:checked]:text-primary has-[input:checked]:border-primary hover:text-pink-400 hover:border-primary"
+        >
+          <Input
+            type="radio"
+            id={id + option.value}
+            name={id}
             value={option.value}
-            id={`${id}-${option.value}`}
+            autoComplete="off"
+            defaultChecked={currentValue === option.value}
+            className="sr-only"
+            onChange={(e) => updateSingleValue(e.target)}
           />
-          <Label htmlFor={`${id}-${option.value}`} className="cursor-pointer">
-            {option.label}
-          </Label>
-        </div>
+          <span className="p-3">{option.label} </span>
+        </Label>
       ))}
-    </RadioGroup>
-
-  )
+    </div>
+  );
 }

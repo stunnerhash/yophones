@@ -54,7 +54,6 @@ export default async function DealCard({
                   sizes="100vw"
                   priority={true}
                 />
-
                 {name}
               </span>
               <span>{term} Months</span>

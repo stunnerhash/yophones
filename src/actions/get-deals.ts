@@ -23,10 +23,11 @@ export async function getDeals(phoneId: number, searchParams: SearchParams){
     const term = convertToFilter(searchParams.term);
     const incData = searchParams.incData as string;
     const upfrontCost = convertStringToFloat (searchParams.upfrontCost as string) ;
-    const monthlyCost = convertStringToFloat(searchParams.monthlyCost as string);
+    const minMonthlyCost = convertStringToFloat(searchParams.minMonthlyCost as string);
+    const maxMonthlyCost = convertStringToFloat(searchParams.maxMonthlyCost as string);
 
     const storageSize = searchParams.storageSize as string;
-    // const searchTerm = searchParams.search === 'string' ? searchParams.search : '';
+    const searchTerm = searchParams.search as string; 
     const colour = typeof searchParams.colour === 'string' ? searchParams.colour : '';
 
     const pageSize = 10;
@@ -55,14 +56,14 @@ export async function getDeals(phoneId: number, searchParams: SearchParams){
     }
 
     const where = {
-      name: {
-        contains: phoneName, 
-        mode: Prisma.QueryMode.insensitive,
-      },
+      AND:[
+        { name: { contains: phoneName, mode: Prisma.QueryMode.insensitive}},
+        { name: { contains: searchTerm, mode: Prisma.QueryMode.insensitive}}
+      ],
       term: term.length > 0 ? { in: term } : undefined,
       network: network.length > 0 ? { in: network } : undefined,
       incData: incData ? { gte: incData } : undefined,
-      monthlyCost: monthlyCost !== null ? { lte: monthlyCost } : undefined,
+      monthlyCost: (maxMonthlyCost !== null && minMonthlyCost !== null) ? { lte: maxMonthlyCost, gte: minMonthlyCost } : undefined,
       upfrontCost: upfrontCost !== null ? { lte: upfrontCost } : undefined,
       colour: colour !== null ? { contains: colour, mode: Prisma.QueryMode.insensitive } : undefined,
       storageSize: storageSize !== null ? { contains: storageSize, mode: Prisma.QueryMode.insensitive } : undefined,

@@ -1,25 +1,25 @@
 export const brandNames=[ "Apple", "Samsung", "Google", "Sony", "Oneplus" ]
 
 export const monthlyRadioData=[
-  {label:"Up to $10", value:"10"},
-  {label:"Up to $20", value:"20"},
-  {label:"Up to $30", value:"30"},
-  {label:"Up to $40", value:"40"},
-  {label:"Up to $60", value:"60"},
+  {label:"$10", value:"10"},
+  {label:"$20", value:"20"},
+  {label:"$30", value:"30"},
+  {label:"$40", value:"40"},
+  {label:"$60", value:"60"},
 ]
 
 export const upfrontRadioData=[
-  {label:"Up to $0", value:"0"},
-  {label:"Up to $50", value:"50"},
-  {label:"Up to $100", value:"100"},
-  {label:"Up to $150", value:"150"},
-  {label:"Up to $200", value:"200"},
+  {label:"Free", value:"0"},
+  {label:"$50", value:"50"},
+  {label:"$100", value:"100"},
+  {label:"$150", value:"150"},
+  {label:"$200", value:"200"},
 ]
 
 export const contractCheckboxData=[
-  {label:"12 Months", value: 12},
-  {label:"24 Months", value: 24},
-  {label:"36 Months", value: 36},
+  {label:"12", value: 12},
+  {label:"24", value: 24},
+  {label:"36", value: 36},
 ]
 export const packageRadioData=[
   {label:"3GB +", value:"3"},
@@ -32,12 +32,11 @@ export const packageRadioData=[
   {label:"Unlimited", value:"999"},
 ]
 export const networkCheckboxData=[
-  {label:"Vodafone", value:"Vodafone", logo:"https://img.uswitch.com/qhi9fkhtpbo3/2d692pbJ3ayS2Km62eUS0s/44dfc6245e253a8cea2ae61b986c2989/Logo_-_vodafone.png?w=56&h=undefined&fit=bounds&auto=webp&quality=55,45"},
-  {label:"Three Mobile",value:"Three Mobile", logo:"https://img.uswitch.com/qhi9fkhtpbo3/2mHjAdL0vOkgEWaOyewuou/edf6f1dc6e8db1baa752b98dcdc6b7b0/Logo_-_o2.png?w=56&h=undefined&fit=bounds&auto=webp&quality=55,45"},
-  {label:"O2",value:"O2", logo:"https://img.uswitch.com/qhi9fkhtpbo3/2mHjAdL0vOkgEWaOyewuou/edf6f1dc6e8db1baa752b98dcdc6b7b0/Logo_-_o2.png?w=56&h=undefined&fit=bounds&auto=webp&quality=55,45"},
-  {label:"iD Mobile",value:"iD Mobile", logo:"https://img.uswitch.com/qhi9fkhtpbo3/3EUyDd1Ztjo30hNN3PxxpA/60e6d35353bcbd2b57ba58041ae5e631/ID-Mobile-logo.png?w=56&h=undefined&fit=bounds&auto=webp&quality=55,45"},
-  {label:"Sky Mobile",value:"Sky Mobile", logo:"https://img.uswitch.com/qhi9fkhtpbo3/607GNhcbioiAoUkyiey4ii/23c86f7c30524eb9353a6b40a39c1b16/SkyMobile.png?w=56&h=undefined&fit=bounds&auto=webp&quality=55,45"},
-  {label:"Tesco Mobile", value:"Tesco Mobile", logo:"https://img.uswitch.com/qhi9fkhtpbo3/657mgANokg0mI8qkUaWcYe/9cd35df75ebd5cbb33b57f17b56acce5/Tesco_Mobile_New_Logo_PNG.png?w=56&h=undefined&fit=bounds&auto=webp&quality=55,45"},
+  {label:"Vodafone", value:"Vodafone", logo:"https://banner2.cleanpng.com/20180713/iu/kisspng-vodafone-australia-business-vodafone-new-zealand-l-amazon-5b49545c1ac523.1327514915315323801097.jpg"},
+  {label:"O2",value:"O2", logo:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/O2-Logo.svg/2121px-O2-Logo.svg.png"},
+  {label:"iD Mobile",value:"iD Mobile", logo:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpSormSX7D7A5bq4N3yz_8q2xehaGJWymUHbb-vmsDOEYsKCH4mKckcydB2BydZ2vTrV8&usqp=CAU"},
+  {label:"Sky Mobile",value:"Sky Mobile", logo:"https://static.skyassets.com/contentstack/assets/bltdc2476c7b6b194dd/blt39f3b0e2549b0aa3/5f3523efc9ec57071816f417/mobile.jpg"},
+  {label:"Tesco Mobile", value:"Tesco Mobile", logo:"https://asset.brandfetch.io/idpAOHp_h9/idgv9I-UIH.jpeg"},
 ]
 
 export const popularPhones = [
