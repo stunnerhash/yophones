@@ -17,7 +17,7 @@ export default function StorageSelect({storageSize}:{storageSize:string[]}){
 
   if(!storageSize) return null;
   return (
-    <div className="flex gap-2 text-xs sm:text-sm font-semibold">
+    <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold">
       <p className="text-xs">Storage:</p>
       {storageSize.map((storage) => (
         <Label

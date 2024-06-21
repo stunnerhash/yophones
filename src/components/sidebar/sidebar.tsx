@@ -2,14 +2,13 @@
 import { AccordionTrigger, AccordionContent, AccordionItem, Accordion } from "@/components/ui/accordion"
 import RadioFactory from "@/components/sidebar/radio-factory"
 import CheckboxFactory from "@/components/sidebar/checkbox-factory"
-import { contractCheckboxData, monthlyRadioData, networkCheckboxData, packageRadioData, upfrontRadioData } from "@/sample-data"
+import { contractCheckboxData, networkCheckboxData, packageRadioData, upfrontRadioData } from "@/sample-data"
 import Image from "next/image"
 import CostSlider from "@/components/sidebar/cost-slider"
-import { useRef, useState } from "react"
+import { useState } from "react"
 import { Button } from "../ui/button"
 import { useRouter, useSearchParams } from "next/navigation"
 import { cn } from "@/lib/utils"
-import { flushSync } from "react-dom"
 
 const AccordianValues = ["monthly-cost", "upfront-cost", "package-data", "network", "contract-length"]
 
@@ -32,7 +31,7 @@ export default function Sidebar() {
   };
 
   return (
-    <div className={cn("border-r p-4 md:p-4 border bg-secondary rounded transition-all", loading && "animate-pulse")}>
+    <div className={cn("border-r p-4 md:p-4 border bg-secondary rounded transition-all", loading && "animate-in animate-out")}>
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-lg font-semibold ">Filter Deals</h2>
         <Button variant="link" className="text-xs" onClick={handleClearFilters}>
