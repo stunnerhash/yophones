@@ -31,7 +31,7 @@ export default function ColourSelect ({colours}:{colours: string[]}){
             className="peer sr-only"
           />
           <div
-            className="size-6 rounded-full ring-offset-1 transition-all ring-current peer-checked:ring-2 "
+            className="size-6 rounded-full ring-offset-1 transition-all ring-current peer-checked:ring-2 hover:ring-2"
             style={{ backgroundColor: colour, color: colour }}
           />
         </Label>

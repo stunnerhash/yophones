@@ -26,12 +26,16 @@ export default function Hamburger({
             <span className="sr-only">Open menu</span>
           </Button>
         </SheetTrigger>
-        <SheetContent>
-          <SheetHeader>
+        <SheetContent className="overflow-y-auto">
+          <SheetHeader className="sticky">
             <SheetTitle><BrandName/></SheetTitle>
             <SheetDescription>Browse our selection of popular and latest phone deals.</SheetDescription>
           </SheetHeader>
-          <Accordion collapsible type="single">
+          <Accordion 
+            // collapsible={true} 
+            type="multiple" 
+            defaultValue={["popular-phones", "latest-phones"]}
+          >
             <AccordionItem value="popular-phones">
               <AccordionTrigger className="text-base">Popular Phones</AccordionTrigger>
               <AccordionContent>

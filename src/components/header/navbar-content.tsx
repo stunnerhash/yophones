@@ -31,13 +31,13 @@ export default function NavbarContent({
         <NavigationMenuItem className="hidden md:block">
           <NavigationMenuTrigger>Popular Phones</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <NavList phones={popularPhones}/>
+            <NavList className="p-6" phones={popularPhones}/>
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem className="hidden md:block">
           <NavigationMenuTrigger>Latest Phones</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <NavList phones={latestPhones}/>
+            <NavList className="p-6" phones={latestPhones}/>
           </NavigationMenuContent>
         </NavigationMenuItem>
       </NavigationMenuList>

@@ -1,5 +1,6 @@
 import db from "@/db";
 import { Prisma } from "@prisma/client";
+import { ClientPageRoot } from "next/dist/client/components/client-page";
 
 interface SearchParams {
   [key: string]: string | string[] | undefined 
@@ -31,13 +32,15 @@ export async function getDeals(phoneId: number, searchParams: SearchParams){
     const colour = typeof searchParams.colour === 'string' ? searchParams.colour : '';
 
     const pageSize = 10;
-    const phone = await db.phone.findUnique({
-      where:{
-        id: phoneId
-      }
-    })
+
+    const phone = await db.phone.findUnique({ where:{ id: phoneId } })
     const phoneName = phone?.name || '';
-    
+
+    const excludeSearch = phone?.excludeSearch || [];    
+    const excludeQuery = excludeSearch.map((term:string) => ({
+      name: { not: { contains: term } }
+    })) 
+
     const select = {
       id:true,
       name: true,
@@ -58,7 +61,8 @@ export async function getDeals(phoneId: number, searchParams: SearchParams){
     const where = {
       AND:[
         { name: { contains: phoneName, mode: Prisma.QueryMode.insensitive}},
-        { name: { contains: searchTerm, mode: Prisma.QueryMode.insensitive}}
+        { name: { contains: searchTerm, mode: Prisma.QueryMode.insensitive}},
+        ...excludeQuery,
       ],
       term: term.length > 0 ? { in: term } : undefined,
       network: network.length > 0 ? { in: network } : undefined,

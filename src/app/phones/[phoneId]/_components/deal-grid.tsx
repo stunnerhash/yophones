@@ -29,7 +29,7 @@ export default async function DealGrid({
 }
 
 export function DealGridSkeleton() {
-  return Array.from({ length: 4 }, (_, index) => (
+  return Array.from({ length: 8 }, (_, index) => (
     <DealCardSkeleton key={index} />
   ));
 }
