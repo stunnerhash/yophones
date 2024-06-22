@@ -17,8 +17,8 @@ export default function ColourSelect ({colours}:{colours: string[]}){
 
   if(!colours) return null;
   return (
-    <div className="flex items-center gap-2 font-semibold">
-      <p className="text-xs">Colour:</p>
+    <div className="flex flex-wrap items-center gap-2 font-semibold">
+      <p className="text-xs hidden sm:block">Colour:</p>
       {colours.map((colour) => (
         <Label key={colour} htmlFor={colour} className="cursor-pointer">
           <Input
@@ -28,7 +28,7 @@ export default function ColourSelect ({colours}:{colours: string[]}){
             defaultChecked={selectedColour === colour}
             onChange={handleChange}
             value={colour}
-            className="peer sr-only"
+            className="peer size-0 sr-only"
           />
           <div
             className="size-6 rounded-full ring-offset-1 transition-all ring-current peer-checked:ring-2 hover:ring-2"

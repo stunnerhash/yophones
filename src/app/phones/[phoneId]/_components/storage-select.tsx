@@ -17,8 +17,8 @@ export default function StorageSelect({storageSize}:{storageSize:string[]}){
 
   if(!storageSize) return null;
   return (
-    <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold">
-      <p className="text-xs">Storage:</p>
+    <div className="text-center grid grid-cols-2 sm:grid-cols-5 items-center gap-2 text-xs sm:text-sm font-semibold">
+      <p className="text-xs hidden sm:block text-start">Storage:</p>
       {storageSize.map((storage) => (
         <Label
           key={storage}
@@ -34,7 +34,7 @@ export default function StorageSelect({storageSize}:{storageSize:string[]}){
             value={storage}
             autoComplete="off"
             defaultChecked={selectedStorage === storage}
-            className="peer sr-only"
+            className="peer size-0 sr-only"
             onChange={handleChange}
           />
           {storage}

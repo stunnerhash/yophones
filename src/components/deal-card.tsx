@@ -10,20 +10,19 @@ import Image from "next/image";
 export default async function DealCard({
   className, 
   data
+ 
 }:{
     className?:string;
     data: Partial<Deal>;
   }
 ){
- 
   if(!data){
     return null;
   }
-  
   const {
     id, 
     name, 
-    // imageUrl,  
+    imageUrl,  
     // brandName, 
     // colour, 
     term, 
@@ -36,6 +35,50 @@ export default async function DealCard({
     TelcosNetworkDetailsJson,
   } = data;
 
+  const networkImageUrl = JSON.parse(TelcosNetworkDetailsJson || '{}')?.logo_url;
+
+  return(
+    <Link href="/deals/[id]" as={`/deals/${id}`}>
+      <div className={cn(className, "select-none cursor-pointer rounded-lg shadow-md")}>
+        <Card className="rounded-lg hover:border hover:border-primary transition-all">
+          <CardHeader className="select-none cursor-pointer ">
+            <CardTitle className="text-md sm:text-lg flex justify-between">
+              <span className="flex items-center">
+                <Image
+                  className="size-6 mx-1"
+                  src={networkImageUrl|| ''}
+                  alt={name || ''}
+                  width={10}
+                  height={10}
+                  sizes="100vw"
+                  priority={true}
+                />
+                {name}
+              </span>
+              <span>{term} Months</span>
+            </CardTitle>
+            <CardDescription>
+              <span>{incData === "Unlimited" ? incData: incData + " GB"}, {network}</span>
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="flex items-center justify-between">
+              <p className="font-semibold text-md sm:text-xl">${monthlyCost}</p>
+              <Button size="sm" variant="outline">
+                View Deal
+              </Button>
+            </div>
+            <Badge className="py-1">{promotionalText}</Badge>
+          </CardContent>
+        </Card>
+      </div>
+    </Link>
+  )
+}
+
+export async function HotDealCard({ className, data }:{ className?:string; data: Partial<Deal>;}){
+  if(!data) return null;
+  const { id, name, term, network, monthlyCost, incData, promotionalText, TelcosNetworkDetailsJson, } = data;
   const networkImageUrl = JSON.parse(TelcosNetworkDetailsJson || '{}')?.logo_url;
 
   return(

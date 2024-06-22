@@ -1,5 +1,5 @@
 "use client"
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 import { useURL } from "@/hooks/use-url";
@@ -35,7 +35,7 @@ export default function RadioFactory({
             value={option.value}
             autoComplete="off"
             defaultChecked={currentValue === option.value}
-            className="sr-only"
+            className="size-0 sr-only"
             onChange={(e) => updateSingleValue(e.target)}
           />
           <span className="p-3">{option.label} </span>

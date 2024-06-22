@@ -49,7 +49,7 @@ export default function CheckboxFactory({
              name={id}
              value={option.value}
              defaultChecked={searchParams.getAll(id).includes(option.value.toString())}
-             className="sr-only"
+             className="size-0 sr-only"
              onChange={(e)=>handleChange(e.target)}
            />
            {renderItem && renderItem(option) || <span className="p-3">{option.label}</span> }

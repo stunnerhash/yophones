@@ -11,7 +11,7 @@ export default async function PhoneWidget({ phoneId }: { phoneId: number }) {
   const { name, imageUrl, brandName, description, storageSize, colours } = phone;
   return (
     <div className="flex gap-4">
-      <div className="relative">
+      <div className="">
         <Image
           className="w-full min-w-20 min-h-40 max-h-48"
           src={imageUrl}
@@ -29,10 +29,8 @@ export default async function PhoneWidget({ phoneId }: { phoneId: number }) {
             <p className="text-sm text-muted-foreground py-1 ">{brandName}</p>
             <p className="text-xs py-1 text-muted-foreground">{description}</p>
           </div>
-
           <ColourSelect colours={colours}/>
           <StorageSelect storageSize={storageSize}/>
-
         </div>
       </div>
     </div>
