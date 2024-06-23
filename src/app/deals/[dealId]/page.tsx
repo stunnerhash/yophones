@@ -59,7 +59,7 @@ export default async function Deal({params}: {params:{dealId:string;}}) {
               />
             </div>
             <div className="flex flex-col gap-2  justify-around">
-              <div className="">
+              <div >
                 <p className="text-md font-semibold">{name}</p>
                 <p className="text-sm text-muted-foreground">{brandName}</p>
                 <p className="text-sm font-bold">{storageSize}</p>

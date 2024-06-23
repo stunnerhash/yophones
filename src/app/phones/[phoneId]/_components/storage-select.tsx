@@ -17,8 +17,8 @@ export default function StorageSelect({storageSize}:{storageSize:string[]}){
 
   if(!storageSize) return null;
   return (
-    <div className="text-center grid grid-cols-2 sm:grid-cols-5 items-center gap-2 text-xs sm:text-sm font-semibold">
-      <p className="text-xs hidden sm:block text-start">Storage:</p>
+    <div className="text-center grid grid-cols-2  items-center gap-2 text-xs sm:text-sm font-semibold">
+      {/* <p className="text-xs hidden sm:block text-start">Storage:</p> */}
       {storageSize.map((storage) => (
         <Label
           key={storage}

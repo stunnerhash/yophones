@@ -23,11 +23,11 @@ export default function CostSlider(){
   return(
     <div className="p-2">
       <span className="flex justify-between py-2">
-          <span className="">Min: ${value[0]}</span>
-          <span>Max: ${value[1]}</span>
+          <span>Min: <span className="text-primary">${value[0]}</span></span>
+          <span>Max: <span className="text-primary">${value[1]}</span></span>
       </span>
       <Slider 
-        className="border  border-primary rounded-sm" 
+        className="shadow rounded-sm" 
         min={RANGE_MIN}
         max={RANGE_MAX}
         defaultValue={value}

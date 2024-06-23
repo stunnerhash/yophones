@@ -18,7 +18,7 @@ export default function ColourSelect ({colours}:{colours: string[]}){
   if(!colours) return null;
   return (
     <div className="flex flex-wrap items-center gap-2 font-semibold">
-      <p className="text-xs hidden sm:block">Colour:</p>
+      {/* <p className="text-xs hidden sm:block pr-5">Colour:</p> */}
       {colours.map((colour) => (
         <Label key={colour} htmlFor={colour} className="cursor-pointer">
           <Input

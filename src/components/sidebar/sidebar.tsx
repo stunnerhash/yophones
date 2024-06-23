@@ -1,4 +1,5 @@
 "use client"
+
 import { AccordionTrigger, AccordionContent, AccordionItem, Accordion } from "@/components/ui/accordion"
 import RadioFactory from "@/components/sidebar/radio-factory"
 import CheckboxFactory from "@/components/sidebar/checkbox-factory"
@@ -98,8 +99,8 @@ export default function Sidebar() {
                 <div className="relative">
                   <Image
                     className="h-full px-4"
-                    src={data.logo || ""}
-                    alt={data.label || ""}
+                    src={data.logo || ''}
+                    alt={data.label || ''}
                     width={100}
                     height={100}
                     priority={false}

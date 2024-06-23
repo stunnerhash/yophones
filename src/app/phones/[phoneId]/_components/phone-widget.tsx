@@ -10,10 +10,9 @@ export default async function PhoneWidget({ phoneId }: { phoneId: number }) {
 
   const { name, imageUrl, brandName, description, storageSize, colours } = phone;
   return (
-    <div className="flex gap-4">
-      <div className="">
+    <div className="flex justify-center gap-4 items-center">
+      <div >
         <Image
-          className="w-full min-w-20 min-h-40 max-h-48"
           src={imageUrl}
           alt={name}
           width={100}
@@ -22,7 +21,7 @@ export default async function PhoneWidget({ phoneId }: { phoneId: number }) {
           draggable="false"
         />
       </div>
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-2 px-2">
         <div className="grid gap-4">
           <div>
             <p className="text-md sm:text-xl py-1 font-bold">{name}</p>

@@ -55,7 +55,8 @@ export async function getDeals(phoneId: number, searchParams: SearchParams){
       incTexts: true,
       storageSize:true,
       promotionalText:true,
-      TelcosNetworkDetailsJson:true
+      TelcosNetworkDetailsJson:true,
+      specifications: true,
     }
 
     const where = {
