@@ -8,6 +8,19 @@ datasource db {
   directUrl = env("DIRECT_URL")
 }
 
+model Analytics {
+  id               Int      @id @default(autoincrement())
+  timestamp        DateTime @default(now())
+  userAgent        String
+  platform         String
+  screenResolution String
+  latitude         Float?
+  longitude        Float?
+  href             String
+  dealName         String
+  network          String
+}
+
 model Phone {
   id            Int      @id @default(autoincrement())
   name          String

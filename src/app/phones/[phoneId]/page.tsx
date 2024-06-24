@@ -26,8 +26,8 @@ export default async function Deals({
 
   return (
     <>
-      <div className="bg-primary  justify-center p-0 sm:px-10 sm:py-4">
-        <div className="grid grid-cols-1 gap-4 p-2 sm:p-10 bg-background lg:grid-cols-3">
+      <div className="bg-primary  justify-center  lg:px-10 lg:py-4">
+        <div className="grid grid-cols-1 gap-4 p-2 sm:p-10 bg-background xl:grid-cols-3">
           <Suspense fallback={<PhoneWidgetSkeleton />} >
             <PhoneWidget phoneId={phoneId} />
           </Suspense>

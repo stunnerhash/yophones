@@ -1,12 +1,11 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { Deal } from "@prisma/client";
-import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 import { Skeleton } from "./ui/skeleton";
 import Image from "next/image";
-import { Plus, PlusCircle } from "lucide-react";
+import { PlusCircle } from "lucide-react";
 
 export default async function DealCard({ className, data }:{ className?:string; data: Partial<Deal>; }){
   if(!data) return null;
@@ -41,9 +40,9 @@ export default async function DealCard({ className, data }:{ className?:string; 
         <Card className="grid grid-cols-1 sm:grid-cols-3 ring-primary  hover:ring-1 rounded-lg transition-all ">
           <div className="border-4 rounded-lg border-secondary col-span-2">
             <div className="grid grid-cols-1 gap-2 p-2 sm:grid-cols-2 bg-secondary">
-              <span className="flex">
+              <span className="flex ">
                 <Image
-                  className="size-5 mx-1"
+                  className="size-5 m-1.5"
                   src={networkImageUrl || ''}
                   alt={name || ''}
                   width={10}
@@ -51,11 +50,11 @@ export default async function DealCard({ className, data }:{ className?:string; 
                   sizes="100vw"
                   priority={true}
                 />
-                <span className="text-sm font-semibold">{name}</span>
+                <span className="text-sm lg:text-lg font-semibold">{name}</span>
               </span>
               <span className="flex justify-center p-2">
                 <Image
-                  className="max-w-20 sm:max-w-14"
+                  className="max-w-20 sm:max-w-14 size-auto"
                   src={imageUrl || ''}
                   alt={name || ''}
                   width={50}

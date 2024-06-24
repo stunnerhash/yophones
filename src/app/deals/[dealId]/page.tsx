@@ -10,7 +10,7 @@ import Image from "next/image";
 import { getDealById } from "@/actions/get-deal-by-id";
 import { Button } from "@/components/ui/button";
 import { ArrowRight} from "lucide-react";
-import Link from "next/link";
+import AnalyticsLink from "@/components/analytics-link";
 
 export default async function Deal({params}: {params:{dealId:string;}}) {
   const dealId = parseInt(params.dealId);
@@ -19,6 +19,7 @@ export default async function Deal({params}: {params:{dealId:string;}}) {
 
   const {
     name, 
+    network,
     brandName, 
     imageUrl, 
     upfrontCost, 
@@ -97,7 +98,7 @@ export default async function Deal({params}: {params:{dealId:string;}}) {
               <AccordionTrigger className="text-base">Plan details</AccordionTrigger>
               <AccordionContent className="flex flex-col gap-2">
                 {planDetails.map(item=>
-                  <div key="item.title">
+                  <div key={item.title}>
                     <Separator/>
                     <div className="flex justify-between items-center p-2">
                       <span className="text-muted-foreground">{item.title}</span> 
@@ -109,12 +110,12 @@ export default async function Deal({params}: {params:{dealId:string;}}) {
             </AccordionItem>
           </Accordion>
 
-          <Link href={basketLink || ''} >
+          <AnalyticsLink href={basketLink || ''} dealName={name || ''} network={network}>
             <Button variant={"link"} className="bg-primary text-background my-4 p-6 animate-out"> 
               Choose deal 
               <ArrowRight/>
             </Button>
-          </Link>
+          </AnalyticsLink>
         </div>
       </div>
       <div>
