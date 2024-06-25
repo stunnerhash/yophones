@@ -6,12 +6,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { Phone } from "@prisma/client";
 import { Skeleton } from "./ui/skeleton";
+import ColourList from "./colour-list";
 
 type PhoneCardProps = {
   data: Phone;
   className?: string;
 };
-
 
 export default function PhoneCard({ data, className }: PhoneCardProps) {
   const {id, imageUrl, name, colours, brandName, badge} = data;
@@ -48,13 +48,7 @@ export default function PhoneCard({ data, className }: PhoneCardProps) {
           </div>
           <div className="px-4 py-6">
             <div className="flex justify-center p-1 gap-1 ">
-              {colours.map((colour) => (
-                <div
-                  key={colour}
-                  className={"w-4 h-1.5 rounded-full"}
-                  style={{ backgroundColor: colour}}
-                />
-              ))}
+              <ColourList colours={colours}/>
             </div>
 
             <div className="flex items-center space-x-1">

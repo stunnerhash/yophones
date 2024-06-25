@@ -15,7 +15,7 @@ import AnalyticsLink from "@/components/analytics-link";
 export default async function Deal({params}: {params:{dealId:string;}}) {
   const dealId = parseInt(params.dealId);
   const deal = await getDealById({dealId});
-  if(!deal) return(<></>);
+  if(!deal) return null;
 
   const {
     name, 
@@ -111,7 +111,7 @@ export default async function Deal({params}: {params:{dealId:string;}}) {
           </Accordion>
 
           <AnalyticsLink href={basketLink || ''} dealName={name || ''} network={network}>
-            <Button variant={"link"} className="bg-primary text-background my-4 p-6 animate-out"> 
+            <Button variant={"link"} className="bg-primary text-background my-4 p-6 animate-out transition-all "> 
               Choose deal 
               <ArrowRight/>
             </Button>

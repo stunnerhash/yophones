@@ -1,11 +1,12 @@
 "use client"
 import { Button } from "@/components/ui/button"
 import { DropdownMenuTrigger, DropdownMenuRadioItem, DropdownMenuRadioGroup, DropdownMenuContent, DropdownMenu } from "@/components/ui/dropdown-menu"
-import { useURL } from "@/hooks/use-url";
+// import { useURL } from "@/hooks/use-url";
 import { ChevronDown } from "lucide-react";
 
 export default function SortBy(){
-  const {updateSingleValue} = useURL()
+  // const {updateSingleValue} = useURL()
+  return null
   return(
     <DropdownMenu >
       <DropdownMenuTrigger asChild >

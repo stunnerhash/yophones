@@ -1,7 +1,8 @@
+'use server'
 import db from "@/db"
-export function getDealById({dealId}:{dealId: number}){
+export async function getDealById({dealId}:{dealId: number}){
   try{
-    const deal = db.deal.findUnique({
+    const deal = await db.deal.findUnique({
       where:{
         id: dealId
       }

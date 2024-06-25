@@ -21,6 +21,12 @@ model Analytics {
   network          String
 }
 
+model Colour {
+  id               Int      @id @default(autoincrement())
+  name             String
+  hexcode          String
+}
+
 model Phone {
   id            Int      @id @default(autoincrement())
   name          String

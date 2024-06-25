@@ -14,18 +14,14 @@ export default async function DealCard({ className, data }:{ className?:string; 
     id, 
     name, 
     imageUrl,  
-    // brandName, 
-    // colour, 
     term, 
-    // network, 
     monthlyCost, 
     upfrontCost, 
-    incData, 
-    // storageSize, 
-    promotionalText,
+    // promotionalText,
     TelcosNetworkDetailsJson,
     specifications, 
   } = data;
+
   const specs = specifications?.split('*').filter(item=>item);
   const networkImageUrl = JSON.parse(TelcosNetworkDetailsJson || '{}')?.logo_url;
 
@@ -38,9 +34,11 @@ export default async function DealCard({ className, data }:{ className?:string; 
         )}
       >
         <Card className="grid grid-cols-1 sm:grid-cols-3 ring-primary  hover:ring-1 rounded-lg transition-all ">
-          <div className="border-4 rounded-lg border-secondary col-span-2">
-            <div className="grid grid-cols-1 gap-2 p-2 sm:grid-cols-2 bg-secondary">
-              <span className="flex ">
+
+          <div className="grid xl:grid-cols-2 border-4 rounded-lg border-secondary col-span-2">
+
+            <div className=" grid grid-cols-1 gap-2 p-2 sm:grid-cols-2 xl:grid-cols-1 bg-secondary">
+              <span className="flex">
                 <Image
                   className="size-5 m-1.5"
                   src={networkImageUrl || ''}
@@ -50,41 +48,42 @@ export default async function DealCard({ className, data }:{ className?:string; 
                   sizes="100vw"
                   priority={true}
                 />
-                <span className="text-sm lg:text-lg font-semibold">{name}</span>
+                <span className="text-sm lg:text-base  font-semibold">{name}</span>
               </span>
               <span className="flex justify-center p-2">
                 <Image
-                  className="max-w-20 sm:max-w-14 size-auto"
+                  className="max-w-20 sm:max-w-14 h-auto w-auto"
                   src={imageUrl || ''}
                   alt={name || ''}
                   width={50}
                   height={50}
-                  sizes="100vw"
                   priority={true}
                 />
               </span>
             </div>
+
             <div className="text-[11px] p-2">
               <ul>
-                {specs?.slice(14, 16)?.map((item, index) => (
-                  <li key={index} className="flex p-1 gap-2 items-center">
-                    <PlusCircle className="size-3 fill-primary text-background" />
+                {specs?.slice(0, 6)?.map((item, index) => (
+                  <li key={index} className="flex p-1 gap-1 items-center">
+                    <span><PlusCircle className="size-3 fill-primary text-background" /></span>
                     <span className="text-muted-foreground">{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
+
           </div>
           <div className="flex flex-col justify-between p-4 gap-4">
             <div className="flex justify-between">
               <span>
-                <p className="text-sm sm:text-lg font-semibold tracking-wide">
+                <p className="text-sm md:text-lg font-semibold tracking-wide">
                   ${upfrontCost?.toFixed(2)}
                 </p>
                 <p className="text-xs sm:text-sm">Upfront Cost </p>
               </span>
               <span>
-                <p className="text-sm sm:text-lg font-semibold tracking-wide text-primary">
+                <p className="text-sm md:text-lg font-semibold tracking-wide text-primary">
                   ${monthlyCost}
                 </p>
                 <p className="text-xs sm:text-sm">Monthly Cost </p>

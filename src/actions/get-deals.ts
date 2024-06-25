@@ -1,6 +1,6 @@
+'use server'
 import db from "@/db";
 import { Prisma } from "@prisma/client";
-import { ClientPageRoot } from "next/dist/client/components/client-page";
 
 interface SearchParams {
   [key: string]: string | string[] | undefined 
