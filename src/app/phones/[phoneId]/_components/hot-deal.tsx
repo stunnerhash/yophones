@@ -1,4 +1,4 @@
-import DealCard, { DealCardSkeleton, HotDealCard } from "@/components/deal-card";
+import DealCard, { DealCardSkeleton } from "@/components/deal-card";
 import db from "@/db"
 
 async function getHotDeal({ phoneId }: { phoneId: number }) {
