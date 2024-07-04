@@ -4,6 +4,8 @@ import "./globals.css";
 import Header from "@/components/header/header";
 import { Providers } from "./providers";
 import Footer from "@/components/footer";
+import { Toaster } from "@/components/ui/toaster";
+import LoadingBar from "@/components/loading-bar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,9 +23,11 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
         <Providers>
+          <LoadingBar/>
           <Header/>
           {children}
           <Footer/>
+          <Toaster/>
         </Providers>
       </body>
     </html>

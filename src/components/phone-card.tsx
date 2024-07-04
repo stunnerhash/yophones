@@ -18,6 +18,7 @@ export default function PhoneCard({ data, className }: PhoneCardProps) {
 
   return (
     <Link 
+      prefetch={true}
       href={{pathname:"/phones/[id]"}}
       as={`phones/${id}`}
     >
