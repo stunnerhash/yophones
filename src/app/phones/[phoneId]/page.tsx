@@ -10,6 +10,8 @@ interface SearchParams {
   [key: string]: string | string[] | undefined 
 };
 
+'Hello world!'
+
 export default async function Deals({
   searchParams,
   params,
