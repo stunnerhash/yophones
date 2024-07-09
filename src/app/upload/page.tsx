@@ -6,22 +6,22 @@ import { ChangeEvent, useRef, useState } from "react";
 import Papa from 'papaparse';
 import { uploadCsvChunk } from "@/actions/upload-csv-chunk";
 import {toast} from "@/components/ui/use-toast";
-import { 
-  Form,
-  // FormItem,
-  // FormField,
-  // FormLabel,
-  // FormControl,
-  // FormMessage,
-  // FormDescription,
-} from "@/components/ui/form";
+// import { 
+//   Form,
+//   FormItem,
+//   FormField,
+//   FormLabel,
+//   FormControl,
+//   FormMessage,
+//   FormDescription,
+// } from "@/components/ui/form";
 
-import {z} from "zod"
+// import {z} from "zod"
 
-const fileSchema = z.instanceof(File).refine(file => file.size>0, {
-  message: 'File must not be empty'
-});
-const formSchema = z.object({ file:fileSchema })
+// const fileSchema = z.instanceof(File).refine(file => file.size>0, {
+//   message: 'File must not be empty'
+// });
+// const formSchema = z.object({ file:fileSchema })
 
 export default function UploadPage() {
   const [isUploading, setIsUploading] = useState(false);
