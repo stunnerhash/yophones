@@ -48,7 +48,7 @@ model Deal {
   imageUrl                         String? @map("merchant_image_url")
   description                      String? @map("description")
   merchantCategory                 String? @map("merchant_category")
-  searchPrice                      Float   @map("search_price")
+  searchPrice                      Float?  @map("search_price")
   merchantName                     String? @map("merchant_name")
   merchantId                       String? @map("merchant_id")
   categoryName                     String? @map("category_name")
